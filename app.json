@@ -1,0 +1,7 @@
+{
+  "name": "phpMyAdmin on Heroku",
+  "description": "A simple configuration wrapper to run phpMyAdmin on Heroku",
+  "repository": "https://github.com/smsaladi/phpmyadmin_heroku",
+  "addons": []
+}
+© 2020 GitHub, Inc.
