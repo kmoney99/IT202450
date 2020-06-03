@@ -1,6 +1,4 @@
 
 <?php
-
-echo "Just an assignment";
-
+    echo "Hey,";
 ?>
