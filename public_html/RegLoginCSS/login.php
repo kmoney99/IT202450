@@ -2,7 +2,7 @@
 include("header.php");
 ?>
 <div class="center">
-<h1 style="background-color:DodgerBlue;">Login</h1>
+<h1 style="background-color:Orange;">Login</h1>
 <form method="POST">
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
