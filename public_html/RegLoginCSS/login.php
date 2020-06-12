@@ -39,15 +39,14 @@ if(isset($_POST["login"])){
 		
 		if($email=="") {
 			
-			echo "<div>Email can not be left empty</div>"
+			echo "<div>Email can not be left empty</div>";
 			
 		}
 		elseif($password=="") {
 			
-			echo "<div>Password can not be left empty</div>"
+			echo "<div>Password can not be left empty</div>";
 			
 		}
-		
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
