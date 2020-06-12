@@ -4,6 +4,8 @@ include("header.php");
 
 ?>
 
+ <title>User Registration</title>
+
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <h1 style="background-color:Orange;">Login</h1>
@@ -11,7 +13,6 @@ include("header.php");
 <form method="POST">
 
 	<div style='text-align:center'>
-	<div style="background-image: url('https://freedesignfile.com/upload/2017/01/Light-blue-tech-background-vector-05.jpg');">
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
@@ -30,9 +31,23 @@ include("header.php");
 //echo var_export($_POST, true);
 //echo var_export($_REQUEST, true);
 if(isset($_POST["login"])){
-	if(isset($_POST["password"]) && isset($_POST["email"])){
-		$password = $_POST["password"];
+	if(isset($_POST["email"]) && isset($_POST["password"])){
+		
 		$email = $_POST["email"];
+		
+		$password = $_POST["password"];
+		
+		if($email=="") {
+			
+			echo "<div>Email can not be left empty</div>"
+			
+		}
+		elseif($password=="") {
+			
+			echo "<div>Password can not be left empty</div>"
+			
+		}
+		
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -57,6 +72,9 @@ if(isset($_POST["login"])){
 								"first_name"=>$result["first_name"],
 								"last_name"=>$result["last_name"]
 							);
+							
+					
+					
 							echo var_export($_SESSION, true);
 							header("Location: home.php");
 						}
@@ -67,7 +85,7 @@ if(isset($_POST["login"])){
 					else{
 						echo "<div>Invalid user</div>";
 					}
-					//echo "<div>Successfully registered!</div>";
+				
 				}
 			}
 			catch (Exception $e){
@@ -75,4 +93,5 @@ if(isset($_POST["login"])){
 			}
 	}
 }
+
 ?>
