@@ -4,8 +4,6 @@ include("header.php");
 
 ?>
 
- <title>User Login</title>
-
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <h1 style="background-color:Orange;">Login</h1>
@@ -34,6 +32,14 @@ if(isset($_POST["login"])){
 	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
+		if($email=="") {
+			echo "Email cannot be left empty";
+			
+		}
+		elseif($password=="") {
+			echo "Password cannot be left empty";	
+		
+		}
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{

@@ -1,11 +1,5 @@
 <?php include("header.php");?>
 
-<head>
-
- <title>User Registration</title>
-
-</head>
-
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <h1 style="background-color:Tomato;">Register</h1>
