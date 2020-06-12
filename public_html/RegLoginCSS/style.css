@@ -1,19 +1,12 @@
-
-body {
-  background-color: lightblue;
+input {
+    background-color: aquamarine;
 }
-
-h1 {
-  color: black;
-  text-align: center;
+label {
+    border: 1px dotted black;
 }
-
-p {
-  font-family: verdana;
-  font-size: 20px;
+form {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11%;
 }
-
-<h1>Welcome to the site where you can take surveys </h1>
-<p>Questions</p>
-
-
