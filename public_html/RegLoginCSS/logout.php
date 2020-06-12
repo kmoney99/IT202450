@@ -4,6 +4,7 @@ include("header.php");
 session_unset();
 session_destroy();
 
+
 //get session cookie and delete/clear it for this session
 if (ini_get("session.use_cookies")) { 
     $params = session_get_cookie_params(); 
@@ -15,4 +16,5 @@ if (ini_get("session.use_cookies")) {
     ); 
 } 
 ?>
+<h1> You have been logged out!</h1>
 
