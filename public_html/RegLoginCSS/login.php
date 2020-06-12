@@ -11,6 +11,7 @@ include("header.php");
 <form method="POST">
 
 	<div style='text-align:center'>
+	<div style="background-image: url('https://freedesignfile.com/upload/2017/01/Light-blue-tech-background-vector-05.jpg');">
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
