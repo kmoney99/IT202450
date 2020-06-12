@@ -4,7 +4,7 @@ include("header.php");
 
 ?>
 
- <title>User Registration</title>
+ <title>User Login</title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -31,6 +31,9 @@ include("header.php");
 //echo var_export($_POST, true);
 //echo var_export($_REQUEST, true);
 if(isset($_POST["login"])){
+	if(isset($_POST["password"]) && isset($_POST["email"])){
+		$password = $_POST["password"];
+		$email = $_POST["email"];
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -39,22 +42,6 @@ if(isset($_POST["login"])){
 				$stmt->execute(array(
 					":email" => $email
 				));
-				if(isset($_POST["email"]) && isset($_POST["password"])){
-		
-		$email = $_POST["email"];
-		
-		$password = $_POST["password"];
-		
-		if($email=="") {
-			
-			echo "<div>Email can not be left empty</div>";
-			
-		}
-		elseif($password=="") {
-			
-			echo "<div>Password can not be left empty</div>";
-			
-		}
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
 					echo var_export($e, true);
@@ -92,5 +79,4 @@ if(isset($_POST["login"])){
 			}
 	}
 }
-
 ?>
