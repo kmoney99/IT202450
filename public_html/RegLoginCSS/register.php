@@ -58,7 +58,7 @@ if(isset($_POST["register"])){
 			}
 		}
 		else{
-			echo "<div>Passwords don't match</div>";
+			echo "<div style="background-color:MediumSeaGreen;">Passwords don't match </div>";
 		}
 	}
 }
