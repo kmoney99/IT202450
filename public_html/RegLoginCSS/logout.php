@@ -16,5 +16,5 @@ if (ini_get("session.use_cookies")) {
     ); 
 } 
 ?>
-<h1> You have been logged out!</h1>
+<h2 style="background-color:Violet;"> You have been logged out!</h2>
 
