@@ -1,4 +1,5 @@
 <?php include("header.php");?>
+<div class="center">
 <h1 style="background-color:Tomato;">Register</h1>
 <form method="POST">
 	<label for="email">Email
@@ -12,6 +13,7 @@
 	</label>
 	<input type="submit" name="register" value="Register"/>
 </form>
+</div>
 
 <?php
 
