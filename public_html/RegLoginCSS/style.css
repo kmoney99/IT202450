@@ -4,7 +4,7 @@ input {
 }
 
 label {
-  
+
 }
 
 form {
@@ -38,9 +38,4 @@ li a:hover {
   background-color: #111;
 }
 
-center {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-}
 

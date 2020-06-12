@@ -6,7 +6,7 @@
 
 <form method="POST">
 
-<div class="center">
+ <div style='text-align:center'>
 
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
@@ -21,8 +21,6 @@
 	</label>
 
 	<input type="submit" name="register" value="Register"/>
-
-</div>
 
 </form>
 

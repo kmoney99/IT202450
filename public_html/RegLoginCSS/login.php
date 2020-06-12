@@ -10,8 +10,7 @@ include("header.php");
 
 <form method="POST">
 
-<div class="center">
-
+	<div style='text-align:center'>
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
@@ -21,8 +20,6 @@ include("header.php");
 	</label>
 
 	<input type="submit" name="login" value="Login"/>
-
-</div>
 
 </form>
 
