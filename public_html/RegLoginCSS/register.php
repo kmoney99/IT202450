@@ -1,25 +1,35 @@
 <?php include("header.php");?>
+
 <link rel="stylesheet" type="text/css" href="style.css">
+
 <h1 style="background-color:Tomato;">Register</h1>
+
 <form method="POST">
+
+<div class="center">
+
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
+
 	<label for="p">Password
 	<input type="password" id="p" name="password" autocomplete="off"/>
 	</label>
+
 	<label for="cp">Confirm Password
 	<input type="password" id="cp" name="cpassword"/>
 	</label>
+
 	<input type="submit" name="register" value="Register"/>
+
+</div>
+
 </form>
+
 
 
 <?php
 
-//echo var_export($_GET, true);
-//echo var_export($_POST, true);
-//echo var_export($_REQUEST, true);
 if(isset($_POST["register"])){
 	if(isset($_POST["password"]) && isset($_POST["cpassword"]) && isset($_POST["email"])){
 		$password = $_POST["password"];

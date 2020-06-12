@@ -1,16 +1,29 @@
 <?php
+
 include("header.php");
+
 ?>
+
 <link rel="stylesheet" type="text/css" href="style.css">
+
 <h1 style="background-color:Orange;">Login</h1>
+
 <form method="POST">
+
+<div class="center">
+
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
+
 	<label for="p">Password
 	<input type="password" id="p" name="password" autocomplete="off"/>
 	</label>
+
 	<input type="submit" name="login" value="Login"/>
+
+</div>
+
 </form>
 
 <?php

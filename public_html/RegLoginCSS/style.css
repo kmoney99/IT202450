@@ -2,9 +2,11 @@ input {
     background-color: aquamarine;
 	
 }
+
 label {
   
 }
+
 form {
     width:80%;
     margin-left: auto;
@@ -34,5 +36,11 @@ li a {
 
 li a:hover {
   background-color: #111;
+}
+
+center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
