@@ -1,6 +1,6 @@
 
 <head>
-    <title>My site</title>
+    <title>Kush's Site</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <?php

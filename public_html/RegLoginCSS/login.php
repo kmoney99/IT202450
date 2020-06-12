@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 ?>
-<h4>Login</h4>
+<h1>Login</h1>
 <form method="POST">
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
