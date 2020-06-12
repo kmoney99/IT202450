@@ -3,9 +3,7 @@ input {
 	
 }
 label {
-    border: 2px dotted black;
-	border-style: solid;
-	border-color: red;
+  
 }
 form {
     width:80%;
