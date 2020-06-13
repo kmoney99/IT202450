@@ -2,7 +2,9 @@
 <?php
 include("header.php");
 ?>
-<h1 style="background-color:Tomato;"></h1>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h1 style="background-color:Blue;">Login</h1>
 
 <form method="POST">
 
@@ -21,17 +23,11 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
-	if(isset($_POST["password"]) && isset($_POST["email"])){
+	if(empty(isset($_POST["password"])) && (emptyisset($_POST["email"]))){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
+		echo "Fields cannot be empty";
 		
-	if (empty($_POST['email'])) {
-		echo "Email is required";
-	}
-	
-	if (empty($_POST['password'])) {
-		echo "Password is required";
-	}
 	
 
 		//require("config.php");
