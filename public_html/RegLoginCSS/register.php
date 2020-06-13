@@ -28,15 +28,6 @@
 
 <?php
 
-if (isset($_POST['email']) == true && empty($_POST['email']) == false) {
-	$email = $_POST['email'];
-	if (filter_var(email, FILTER_VALIDATE_EMAIL) == true ) {
-	}
-    else {
-		echo "Invalid email address!";
-	}
-}
-
 if(isset($_POST["register"])){
 	if(isset($_POST["password"]) && isset($_POST["cpassword"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
@@ -54,14 +45,16 @@ if(isset($_POST["register"])){
 					":email" => $email,
 					":password" => $hash//Don't save the raw password $password
 				));
+				
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
 					echo var_export($e, true);
 				}
 				else{
 					echo "<div>Successfully registered!</div>";
-					header("Location: login.php");
+					
 				}
+				
 			}
 			catch (Exception $e){
 				echo $e->getMessage();

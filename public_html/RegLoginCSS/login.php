@@ -41,16 +41,6 @@ if(isset($_POST["login"])){
 }
 
 
-if (isset($_POST['email']) == true && empty($_POST['email']) == false) {
-	$email = $_POST['email'];
-	if (filter_var(email, FILTER_VALIDATE_EMAIL) == true ) {
-	}
-    else {
-		echo "Invalid email address!";
-	}
-}
-
-
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -63,6 +53,9 @@ if (isset($_POST['email']) == true && empty($_POST['email']) == false) {
 				if($e[0] != "00000"){
 					echo var_export($e, true);
 				}
+				else{
+							echo "<div>Invalid user!</div>";
+						}
 				else{
 					$result = $stmt->fetch(PDO::FETCH_ASSOC);
 					if ($result){
@@ -85,13 +78,7 @@ if (isset($_POST['email']) == true && empty($_POST['email']) == false) {
 						}
 					
 					}
-					
-					else{
-							echo "<div>Invalid user!</div>";
-						}
-					
-					
-				
+
 				}
 			}
 			catch (Exception $e){
