@@ -25,9 +25,6 @@ include("header.php");
 
 <?php
 
-//echo var_export($_GET, true);
-//echo var_export($_POST, true);
-//echo var_export($_REQUEST, true);
 if(isset($_POST["login"])){
 	if (empty($_POST['email'])) {
 		echo "Email is required";
@@ -57,7 +54,6 @@ if(isset($_POST["login"])){
 					if ($result){
 						$rpassword = $result["password"];
 						if(password_verify($password, $rpassword)){
-							echo "<div>Passwords matched! You are technically logged in!</div>";
 							$_SESSION["user"] = array(
 								"id"=>$result["id"],
 								"email"=>$result["email"],
@@ -71,12 +67,10 @@ if(isset($_POST["login"])){
 							header("Location: home.php");
 						}
 						else{
-							echo "<div>Invalid password!</div>";
+							echo "<div>Your password is invalid or your invalid user!</div>";
 						}
 					}
-					elseif{
-						echo "<div>Invalid user</div>";
-					}
+					
 				
 				}
 			}

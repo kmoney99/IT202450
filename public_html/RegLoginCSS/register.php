@@ -8,15 +8,15 @@
 
  <div style='text-align:center'>
 
-	<label for="email">Email
+	<label for="email">Email:<font color=red>*</font>
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
 
-	<label for="p">Password
+	<label for="p">Password:<font color=red>*</font>
 	<input type="password" id="p" name="password" autocomplete="off"/>
 	</label>
 
-	<label for="cp">Confirm Password
+	<label for="cp">Confirm Password:<font color=red>*</font>
 	<input type="password" id="cp" name="cpassword"/>
 	</label>
 
@@ -37,6 +37,7 @@ if(isset($_POST["register"])){
 			//echo "<div>Passwords Match</div>";
 			//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
 				$hash = password_hash($password, PASSWORD_BCRYPT);
@@ -55,7 +56,7 @@ if(isset($_POST["register"])){
 				}
 			}
 			catch (Exception $e){
-				echo $e->getMessage();
+				echo "Please try again your Email or Password is empty";
 			}
 		}
 		else{
