@@ -37,7 +37,6 @@ if(isset($_POST["register"])){
 			//echo "<div>Passwords Match</div>";
 			//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
 				$hash = password_hash($password, PASSWORD_BCRYPT);
@@ -56,7 +55,7 @@ if(isset($_POST["register"])){
 				}
 			}
 			catch (Exception $e){
-				echo "Please try again your Email or Password is empty";
+				echo $e->getMessage();
 			}
 		}
 		else{

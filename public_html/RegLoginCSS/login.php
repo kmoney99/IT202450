@@ -26,6 +26,9 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
+	
+	    echo "</br>"; 
+		
 	if (empty($_POST['email'])) {
 		echo "Email is required";
 	}
@@ -67,9 +70,13 @@ if(isset($_POST["login"])){
 							header("Location: home.php");
 						}
 						else{
-							echo "<div>Your password is invalid or your invalid user!</div>";
+							echo "<div>Your password is invalid!</div>";
 						}
 					}
+					else{
+							echo "<div>Invalid user!</div>";
+						}
+					
 					
 				
 				}
