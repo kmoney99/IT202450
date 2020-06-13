@@ -51,6 +51,7 @@ if(isset($_POST["register"])){
 				}
 				else{
 					echo "<div>Successfully registered!</div>";
+					header("Location: login.php");
 				}
 			}
 			catch (Exception $e){
