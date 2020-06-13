@@ -2,12 +2,17 @@
 <?php
 include("header.php");
 ?>
-<h4>Login</h4>
+<h1 style="background-color:Tomato;"></h1>
+
 <form method="POST">
-	<label for="email">Email
+
+ <div style='text-align:center'>
+
+	<label for="email">Email:<font color=red>*</font>
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
-	<label for="p">Password
+
+	<label for="p">Password:<font color=red>*</font>
 	<input type="password" id="p" name="password" autocomplete="off"/>
 	</label>
 	<input type="submit" name="login" value="Login"/>
@@ -19,6 +24,15 @@ if(isset($_POST["login"])){
 	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
+		
+	if (empty($_POST['email'])) {
+		echo "Email is required";
+	}
+	
+	if (empty($_POST['password'])) {
+		echo "Password is required";
+	}
+	
 
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -62,4 +76,6 @@ if(isset($_POST["login"])){
 			}
 	}
 }
+
+
 ?>
