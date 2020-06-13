@@ -51,11 +51,8 @@ if(isset($_POST["login"])){
 				));
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
-					echo var_export($e, true);
+					
 				}
-				else{
-							echo "<div>Invalid user!</div>";
-						}
 				else{
 					$result = $stmt->fetch(PDO::FETCH_ASSOC);
 					if ($result){
@@ -68,9 +65,6 @@ if(isset($_POST["login"])){
 								"last_name"=>$result["last_name"]
 							);
 							
-					
-					
-							echo var_export($_SESSION, true);
 							header("Location: home.php");
 						}
 						else{

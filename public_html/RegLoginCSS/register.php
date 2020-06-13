@@ -48,7 +48,6 @@ if(isset($_POST["register"])){
 				
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
-					echo var_export($e, true);
 				}
 				else{
 					echo "<div>Successfully registered!</div>";
