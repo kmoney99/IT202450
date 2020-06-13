@@ -25,20 +25,19 @@ include("header.php");
 
 <?php
 
+//echo var_export($_GET, true);
+//echo var_export($_POST, true);
+//echo var_export($_REQUEST, true);
 if(isset($_POST["login"])){
-	
-	    echo "</br>"; 
 	if (empty($_POST['email'])) {
 		echo "Email is required";
 	}
-	    echo "</br>"; 
-		
+	
 	if (empty($_POST['password'])) {
 		echo "Password is required";
 	}
-
 }
-
+	
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -56,6 +55,7 @@ if(isset($_POST["login"])){
 					if ($result){
 						$rpassword = $result["password"];
 						if(password_verify($password, $rpassword)){
+							echo "<div>Passwords matched! You are technically logged in!</div>";
 							$_SESSION["user"] = array(
 								"id"=>$result["id"],
 								"email"=>$result["email"],
@@ -69,10 +69,12 @@ if(isset($_POST["login"])){
 							header("Location: home.php");
 						}
 						else{
-							echo "<div>Your password is invalid or your invalid user!</div>";
+							echo "<div>Invalid password!</div>";
 						}
 					}
-					
+					else{
+						echo "<div>Invalid user</div>";
+					}
 				
 				}
 			}
