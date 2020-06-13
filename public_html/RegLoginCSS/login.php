@@ -11,11 +11,11 @@ include("header.php");
 <form method="POST">
 
 	<div style='text-align:center'>
-	<label for="email">Email
+	<label for="email">Email:<font color=red>*</font>
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
 
-	<label for="p">Password
+	<label for="p">Password:<font color=red>*</font>
 	<input type="password" id="p" name="password" autocomplete="off"/>
 	</label>
 
@@ -29,17 +29,13 @@ include("header.php");
 //echo var_export($_POST, true);
 //echo var_export($_REQUEST, true);
 if(isset($_POST["login"])){
-	if(isset($_POST["password"]) && isset($_POST["email"])){
-		$password = $_POST["password"];
-		$email = $_POST["email"];
-		if($email=="") {
-			echo "Email cannot be left empty";
-			
-		}
-		elseif($password=="") {
-			echo "Password cannot be left empty";	
-		
-		}
+	if (empty($_POST['email'])) {
+		echo "Email is required";
+	}
+	
+	if (empty($_POST['password'])) {
+		echo "Password is required";
+	}
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
