@@ -32,7 +32,8 @@ if(isset($_POST["login"])){
 	if (empty($_POST['email'])) {
 		echo "Email is required";
 	}
-	
+	    echo "</br>"; 
+		
 	if (empty($_POST['password'])) {
 		echo "Password is required";
 	}
@@ -73,7 +74,7 @@ if(isset($_POST["login"])){
 							echo "<div>Invalid password!</div>";
 						}
 					}
-					else{
+					elseif{
 						echo "<div>Invalid user</div>";
 					}
 				
