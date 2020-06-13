@@ -28,7 +28,6 @@ include("header.php");
 if(isset($_POST["login"])){
 	
 	    echo "</br>"; 
-		
 	if (empty($_POST['email'])) {
 		echo "Email is required";
 	}
@@ -40,7 +39,6 @@ if(isset($_POST["login"])){
 
 }
 
-
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -51,7 +49,7 @@ if(isset($_POST["login"])){
 				));
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
-					
+					echo var_export($e, true);
 				}
 				else{
 					$result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -65,14 +63,17 @@ if(isset($_POST["login"])){
 								"last_name"=>$result["last_name"]
 							);
 							
+					
+					
+							echo var_export($_SESSION, true);
 							header("Location: home.php");
 						}
 						else{
-							echo "<div>Your password is invalid!</div>";
+							echo "<div>Your password is invalid or your invalid user!</div>";
 						}
-					
 					}
-
+					
+				
 				}
 			}
 			catch (Exception $e){
