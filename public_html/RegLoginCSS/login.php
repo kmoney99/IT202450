@@ -40,6 +40,17 @@ if(isset($_POST["login"])){
 
 }
 
+
+if (isset($_POST['email']) == true && empty($_POST['email']) == false) {
+	$email = $_POST['email'];
+	if (filter_var(email, FILTER_VALIDATE_EMAIL) == true ) {
+	}
+    else {
+		echo "Invalid email address!";
+	}
+}
+
+
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -72,7 +83,9 @@ if(isset($_POST["login"])){
 						else{
 							echo "<div>Your password is invalid!</div>";
 						}
+					
 					}
+					
 					else{
 							echo "<div>Invalid user!</div>";
 						}
