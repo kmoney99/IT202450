@@ -36,6 +36,9 @@ if(isset($_POST["login"])){
 	if (empty($_POST['password'])) {
 		echo "Password is required";
 	}
+
+}
+
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -79,6 +82,5 @@ if(isset($_POST["login"])){
 			catch (Exception $e){
 				echo $e->getMessage();
 			}
-	}
-}
+
 ?>
