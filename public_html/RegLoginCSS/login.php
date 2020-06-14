@@ -23,9 +23,6 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
-	if(isset($_POST["password"]) && isset($_POST["email"])){
-		$password = $_POST["password"];
-		$email = $_POST["email"];
 $fields = array('email','password');
 $error = false; //No errors yet
 foreach($fields AS $fieldname) { //Loop trough each field
