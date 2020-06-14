@@ -24,37 +24,6 @@ include("header.php");
 
 
 if(isset($_POST["login"])){
-	$username=$_POST['email']; 
-	$password=$_POST['password'];
-	
-	$email = addslashes_gpc($email);
-	$password = addslashes_gpc($password);
-	
-	
-	$sql_select = "SELECT
-					email,
-					password
-					WHERE
-					email='$email'
-					AND
-					password='$password'
-				";
-					
-	$result = $_DB->opendb($sql_select);
-	
-	var_dump($result);
-	
-	
-	
-	if($count==1){  
-		$_SESSION['logged_in'] = true;
-	header("Location: home.php");
-	}
-	else {
-	echo "<center>";
-	echo "Wrong Username or Password";
-	echo "</center>";
-	}
 	
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			
@@ -66,16 +35,16 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 				
 				$fields = array('Email','Password');
 
-				foreach($fields AS $fieldname) { //Loop trough each field
-				  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
+				foreach($fields AS $fieldname) { //Looping through each type in fields 
+				  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) { //Checking if none of them are empty
 					echo "<br>";
 					echo 'Field '.$fieldname.' is empty!<br />';
 					 
 				  }
 				}
-				/*$e = $stmt->errorInfo();
+				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
-					//echo var_export($e, true);
+					echo var_export($e, true);
 				}
 				else{
 					$result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -97,8 +66,8 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 					else{
 						echo "<div>Invalid user</div>";
 					}
-					//echo "<div>Successfully registered!</div>";
+				
 				}
-				*/		
+
 }
 ?>
