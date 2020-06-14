@@ -58,17 +58,19 @@ if(isset($_POST["register"])){
 				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                   $emailErr = "Invalid email format"; 
                }
-			   
+			      echo "<br>";
 				if (empty($_POST['email'])) {
 		
 					echo "Email cannot be empty";
-		
+					
 				}
+				 echo "<br>";
 				if (empty($_POST['password'])) {
 		
 					echo "Password cannot be empty";
 		
 				}
+				 echo "<br>";
 				if (empty($_POST['cpassword'])) {
 		
 					echo "Confirm password cannot be empty";
