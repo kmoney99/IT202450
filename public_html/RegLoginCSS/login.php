@@ -24,29 +24,27 @@ include("header.php");
 
 
 if(isset($_POST["login"])){
-	/*
-$fields = array('Email','Password');
-
-foreach($fields AS $fieldname) { //Loop trough each field
-  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
-    echo "<br>";
-	echo 'Field '.$fieldname.' is empty!<br />';
-     
-  }
-}
 	
-}
-
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-			try{
+			
 				$db = new PDO($connection_string, $dbuser, $dbpass);
 				$stmt = $db->prepare("SELECT * FROM Users where email = :email LIMIT 1");
 				$stmt->execute(array(
 					":email" => $email
 				));
-				$e = $stmt->errorInfo();
-				if($e[0] != "00000"){
-					echo var_export($e, true);
+				
+				$fields = array('Email','Password');
+
+				foreach($fields AS $fieldname) { //Loop trough each field
+				  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
+					echo "<br>";
+					echo 'Field '.$fieldname.' is empty!<br />';
+					 
+				  }
+				}
+				//$e = $stmt->errorInfo();
+				//if($e[0] != "00000"){
+					//echo var_export($e, true);
 				}
 				else{
 					$result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -70,23 +68,6 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 					}
 					//echo "<div>Successfully registered!</div>";
 				}
-			}
-			catch (Exception $e){
-				echo $e->getMessage();
-			}
-			}
-			*/
-$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-$stmt->execute([$_POST['email']]);
-$user = $stmt->fetch();
 
-if ($user && password_verify($_POST['pass'], $user['pass']))
-{
-	echo var_export($_SESSION, true);
-	header("Location: home.php");
-    
-} else {
-    echo "invalid";
-}
 }
 ?>
