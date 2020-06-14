@@ -36,7 +36,7 @@ foreach($fields AS $fieldname) { //Loop trough each field
 }
 	
 }
-*/
+
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
@@ -75,4 +75,18 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 				echo $e->getMessage();
 			}
 			}
+			*/
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->execute([$_POST['email']]);
+$user = $stmt->fetch();
+
+if ($user && password_verify($_POST['pass'], $user['pass']))
+{
+	echo var_export($_SESSION, true);
+	header("Location: home.php");
+    
+} else {
+    echo "invalid";
+}
+}
 ?>
