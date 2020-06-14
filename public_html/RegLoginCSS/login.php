@@ -22,15 +22,6 @@ include("header.php");
 
 
 <?php
-$fields = array('Email','Password');
-
-				foreach($fields AS $fieldname) { //Looping through each type in fields 
-				  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) { //Checking if none of them are empty
-					echo "<br>";
-					echo 'Field '.$fieldname.' is empty!<br />';
-					 
-				  }
-				}
 if(isset($_POST["login"])){
 	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
@@ -43,6 +34,15 @@ if(isset($_POST["login"])){
 				$stmt->execute(array(
 					":email" => $email
 				));
+				$fields = array('Email','Password');
+
+				foreach($fields AS $fieldname) { //Looping through each type in fields 
+				  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) { //Checking if none of them are empty
+					echo "<br>";
+					echo 'Field '.$fieldname.' is empty!<br />';
+					 
+				  }
+				}
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
 					echo var_export($e, true);
