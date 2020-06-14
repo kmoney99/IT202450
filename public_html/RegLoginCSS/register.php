@@ -35,25 +35,6 @@ if(isset($_POST["register"])){
 		$cpassword = $_POST["cpassword"];
 		$email = $_POST["email"];
 	
-	if (empty($_POST['email'])) {
-		
-		echo "Email cannot be empty";
-		
-	}
-	if (empty($_POST['password'])) {
-		
-		echo "Password cannot be empty";
-		
-	}
-	if (empty($_POST['cpassword'])) {
-		
-		echo "Confirm password cannot be empty";
-		
-	}
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                  $emailErr = "Invalid email format"; 
-               }
-	
 		if($password == $cpassword){
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
@@ -65,12 +46,33 @@ if(isset($_POST["register"])){
 					":password" => $hash//Don't save the raw password $password
 				));
 				
+				
+				
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
 				}
 				else{
 					echo "<div>Successfully registered!</div>";
 					
+				}
+				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                  $emailErr = "Invalid email format"; 
+               }
+			   
+				if (empty($_POST['email'])) {
+		
+					echo "Email cannot be empty";
+		
+				}
+				if (empty($_POST['password'])) {
+		
+					echo "Password cannot be empty";
+		
+				}
+				if (empty($_POST['cpassword'])) {
+		
+					echo "Confirm password cannot be empty";
+		
 				}
 				
 			}
