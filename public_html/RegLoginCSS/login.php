@@ -71,5 +71,5 @@ foreach($fields AS $fieldname) { //Loop trough each field
 				echo $e->getMessage();
 			}
 	}
-}
+
 ?>
