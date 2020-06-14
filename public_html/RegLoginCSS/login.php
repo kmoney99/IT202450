@@ -28,7 +28,7 @@ $error = false; //No errors yet
 foreach($fields AS $fieldname) { //Loop trough each field
   if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
     echo "<br>";
-	echo $fieldname' is empty !<br />'; //Display error with field
+	echo 'Field '.$fieldname.' is empty!<br />';
     $error = true; //Yup there are errors
   }
 }
