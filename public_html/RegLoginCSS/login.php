@@ -27,7 +27,6 @@ if(isset($_POST["login"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
 
-if(isset($_POST["login"])){
 	if (empty($_POST['email'])) {
 		$email = $_POST['email'];	
 	}
@@ -35,7 +34,6 @@ if(isset($_POST["login"])){
 	if (empty($_POST['password'])) {
 		$password = $_POST['password'];
 	}
-}
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
