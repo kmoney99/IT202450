@@ -44,17 +44,7 @@ if(isset($_POST["register"])){
 					":email" => $email,
 					":password" => $hash//Don't save the raw password $password
 				));
-				
-				
-				
-				$e = $stmt->errorInfo();
-				if($e[0] != "00000"){
-				}
-				else{
-					echo "<div>Successfully registered!</div>";
-					
-				}
-			      echo "<br>";
+				 echo "<br>";
 				if (empty($_POST['email'])) {
 		
 					echo "Email cannot be empty";
@@ -71,6 +61,16 @@ if(isset($_POST["register"])){
 		
 					echo "Confirm password cannot be empty";
 		
+				}
+				
+				
+				
+				$e = $stmt->errorInfo();
+				if($e[0] != "00000"){
+				}
+				else{
+					echo "<div>Successfully registered!</div>";
+					
 				}
 				
 			}

@@ -26,14 +26,15 @@ if(isset($_POST["login"])){
 	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
+$fields = array('email','password');
+$error = false; //No errors yet
+foreach($fields AS $fieldname) { //Loop trough each field
+  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
+    echo 'Field '.$fieldname.' is empty !<br />'; //Display error with field
+    $error = true; //Yup there are errors
+  }
+}
 
-	if (empty($_POST['email'])) {
-		$email = $_POST['email'];	
-	}
-	
-	if (empty($_POST['password'])) {
-		$password = $_POST['password'];
-	}
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
@@ -50,7 +51,7 @@ if(isset($_POST["login"])){
 					if ($result){
 						$rpassword = $result["password"];
 						if(password_verify($password, $rpassword)){
-							echo "<div>Passwords matched! You are technically logged in!</div>";
+	
 							$_SESSION["user"] = array(
 								"id"=>$result["id"],
 								"email"=>$result["email"],
@@ -67,7 +68,6 @@ if(isset($_POST["login"])){
 					else{
 						echo "<div>Invalid user</div>";
 					}
-					//echo "<div>Successfully registered!</div>";
 				}
 			}
 			catch (Exception $e){
