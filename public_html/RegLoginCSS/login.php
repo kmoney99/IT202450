@@ -23,16 +23,17 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
-	if(empty(isset($_POST["password"])) && (empty(isset($_POST["email"]))){
-		echo "Fields cannot be empty";
+	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
-		
-	
-		
-	
 
-		//require("config.php");
+	if (empty($_POST['email'])) {
+		echo "Email is required";
+	}
+	
+	if (empty($_POST['password'])) {
+		echo "Password is required";
+	}
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
@@ -74,6 +75,4 @@ if(isset($_POST["login"])){
 			}
 	}
 }
-
-
 ?>
