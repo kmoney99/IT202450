@@ -23,11 +23,12 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
-$fields = array('email','password');
+$fields = array('Email','Password');
 $error = false; //No errors yet
 foreach($fields AS $fieldname) { //Loop trough each field
   if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
-    echo 'Field '.$fieldname.' is empty !<br />'; //Display error with field
+    echo "<br>";
+	echo $fieldname' is empty !<br />'; //Display error with field
     $error = true; //Yup there are errors
   }
 }
