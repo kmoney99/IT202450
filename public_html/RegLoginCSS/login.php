@@ -23,16 +23,6 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
-$fields = array('Email','Password');
-$error = false; //No errors yet
-foreach($fields AS $fieldname) { //Loop trough each field
-  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
-    echo "<br>";
-	echo 'Field '.$fieldname.' is empty!<br />';
-    $error = true; //Yup there are errors
-  }
-}
-
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
@@ -40,6 +30,16 @@ foreach($fields AS $fieldname) { //Loop trough each field
 				$stmt->execute(array(
 					":email" => $email
 				));
+				$fields = array('Email','Password');
+				$error = false; //No errors yet
+				foreach($fields AS $fieldname) { //Loop trough each field
+					if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) {
+						echo "<br>";
+						echo 'Field '.$fieldname.' is empty!<br />';
+					$error = true; //Yup there are errors
+  }
+}
+				
 				$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
 					echo var_export($e, true);
@@ -56,6 +56,7 @@ foreach($fields AS $fieldname) { //Loop trough each field
 								"first_name"=>$result["first_name"],
 								"last_name"=>$result["last_name"]
 							);
+							
 							echo var_export($_SESSION, true);
 							header("Location: home.php");
 						}
