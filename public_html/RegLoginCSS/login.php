@@ -23,10 +23,12 @@ include("header.php");
 <?php
 
 if(isset($_POST["login"])){
-	if(empty(isset($_POST["password"])) && (emptyisset($_POST["email"]))){
+	if(empty(isset($_POST["password"])) && (empty(isset($_POST["email"]))){
+		echo "Fields cannot be empty";
 		$password = $_POST["password"];
 		$email = $_POST["email"];
-		echo "Fields cannot be empty";
+		
+	
 		
 	
 
