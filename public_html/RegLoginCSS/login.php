@@ -43,31 +43,6 @@ foreach($fields AS $fieldname) { //Loop trough each field
 				if($e[0] != "00000"){
 					echo var_export($e, true);
 				}
-				else{
-					$result = $stmt->fetch(PDO::FETCH_ASSOC);
-					if ($result){
-						$rpassword = $result["password"];
-						if(password_verify($password, $rpassword)){
-	
-							$_SESSION["user"] = array(
-								"email"=>$result["email"],
-								"password"=>$result["password"]
-							);
-							echo var_export($_SESSION, true);
-							header("Location: home.php");
-						}
-						else{
-							echo "<div>Invalid password!</div>";
-						}
-					}
-					else{
-						echo "<div>Invalid user</div>";
-					}
-				}
 			}
-			catch (Exception $e){
-				echo $e->getMessage();
-			}
-	}
-
+}			
 ?>
