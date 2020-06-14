@@ -24,6 +24,37 @@ include("header.php");
 
 
 if(isset($_POST["login"])){
+	$username=$_POST['email']; 
+	$password=$_POST['password'];
+	
+	$email = addslashes_gpc($email);
+	$password = addslashes_gpc($password);
+	
+	
+	$sql_select = "SELECT
+					email,
+					password
+					WHERE
+					email='$email'
+					AND
+					password='$password'
+				";
+					
+	$result = $_DB->opendb($sql_select);
+	
+	var_dump($result);
+	
+	
+	
+	if($count==1){  
+		$_SESSION['logged_in'] = true;
+	header("Location: home.php");
+	}
+	else {
+	echo "<center>";
+	echo "Wrong Username or Password";
+	echo "</center>";
+	}
 	
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			
@@ -42,8 +73,8 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 					 
 				  }
 				}
-				//$e = $stmt->errorInfo();
-				//if($e[0] != "00000"){
+				/*$e = $stmt->errorInfo();
+				if($e[0] != "00000"){
 					//echo var_export($e, true);
 				}
 				else{
@@ -68,4 +99,6 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 					}
 					//echo "<div>Successfully registered!</div>";
 				}
+				*/		
+}
 ?>
