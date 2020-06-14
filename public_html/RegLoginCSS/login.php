@@ -30,23 +30,21 @@ if(isset($_POST["login"])){
 	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
-if(isset($_POST["login"])){
-if (empty($_POST['email'])) {
-echo "Email is required";
-}
-
-if (empty($_POST['password'])) {
-echo "Password is required";
-}
-}
-
-
-
-
 
 
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+			$fields = array('Email','Password');
+
+						foreach($fields AS $fieldname) { //Looping through each type in fields 
+						  if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])) { //Checking if none of them are empty
+							echo "<br>";
+							echo 'Field '.$fieldname.' is empty!<br />';
+							 
+						  }
+						}
+
+
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
 				$stmt = $db->prepare("SELECT * FROM Users where email = :email LIMIT 1");
