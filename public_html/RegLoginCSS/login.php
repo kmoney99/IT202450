@@ -20,8 +20,6 @@ include("header.php");
 	<input type="submit" name="login" value="Login"/>
 </form>
 
-<?php
-
 
 <?php
 $fields = array('Email','Password');
