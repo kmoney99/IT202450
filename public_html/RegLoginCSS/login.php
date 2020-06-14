@@ -32,17 +32,33 @@ foreach($fields AS $fieldname) { //Loop trough each field
      
   }
 }
-	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-			try{
-				$db = new PDO($connection_string, $dbuser, $dbpass);
-				$stmt = $db->prepare("SELECT * FROM Users where email = :email LIMIT 1");
-				$stmt->execute(array(
-					":email" => $email
-				));
-				$e = $stmt->errorInfo();
-				if($e[0] != "00000"){
-					echo var_export($e, true);
-				}
-			}
-}			
+	
+}
+
+$email = $_POST['eamil'];
+$password = $_POST['password'];
+
+$sql = "SELECT password
+        FROM members
+        WHERE email = '$email'		
+      ";
+	  
+	  $result = mysqli_query( $conn, $sql);
+	  
+	  while ($row = mysqli_fetch_assoc($result ) ) {
+		
+		$pw = $row['password'];
+	  }
+		
+	if ($pw == $password) {
+          
+		session_start();
+		$_SESSION['u_e'] = $email;
+		header("Location: home.php");
+ 
+       		
+	  }
+
+
+
 ?>
