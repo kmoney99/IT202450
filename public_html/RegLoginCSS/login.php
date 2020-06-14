@@ -22,7 +22,9 @@ include("header.php");
 
 <?php
 
+
 if(isset($_POST["login"])){
+	/*
 $fields = array('Email','Password');
 
 foreach($fields AS $fieldname) { //Loop trough each field
@@ -34,6 +36,7 @@ foreach($fields AS $fieldname) { //Loop trough each field
 }
 	
 }
+*/
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
@@ -72,5 +75,6 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			}
 			catch (Exception $e){
 				echo $e->getMessage();
+			}
 			}
 ?>
