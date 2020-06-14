@@ -28,11 +28,32 @@
 
 <?php
 
+$emailErr = "";
 if(isset($_POST["register"])){
 	if(isset($_POST["password"]) && isset($_POST["cpassword"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$cpassword = $_POST["cpassword"];
 		$email = $_POST["email"];
+	
+	if (empty($_POST['email'])) {
+		
+		echo "Email cannot be empty";
+		
+	}
+	if (empty($_POST['password'])) {
+		
+		echo "Password cannot be empty";
+		
+	}
+	if (empty($_POST['cpassword'])) {
+		
+		echo "Confirm password cannot be empty";
+		
+	}
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                  $emailErr = "Invalid email format"; 
+               }
+	
 		if($password == $cpassword){
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
