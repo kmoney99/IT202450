@@ -30,6 +30,20 @@ if(isset($_POST["login"])){
 	if(isset($_POST["password"]) && isset($_POST["email"])){
 		$password = $_POST["password"];
 		$email = $_POST["email"];
+if(isset($_POST["login"])){
+if (empty($_POST['email'])) {
+echo "Email is required";
+}
+
+if (empty($_POST['password'])) {
+echo "Password is required";
+}
+}
+
+
+
+
+
 
 		//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -58,16 +72,6 @@ if(isset($_POST["login"])){
 							echo var_export($_SESSION, true);
 							header("Location: home.php");
 						}
-						
-						if (empty($_POST['email'])) {
-							echo "Email is required";
-						}
-
-						if (empty($_POST['password'])) {
-							echo "Password is required";
-						}
-						}
-						
 						else{
 							echo "<div>Invalid password!</div>";
 						}
