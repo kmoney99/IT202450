@@ -25,10 +25,10 @@ else{
 ?>
 
 <form method="POST">
-	<label for="thing">Thing Name
+	<label for="thing">Type a Question Category:
 	<input type="text" id="thing" name="name" value="<?php echo get($result, "name");?>" />
 	</label>
-	<label for="q">Quantity
+	<label for="q">Number of questions to be asked?
 	<input type="number" id="q" name="quantity" value="<?php echo get($result, "quantity");?>" />
 	</label>
     <?php if($thingId > 0):?>
