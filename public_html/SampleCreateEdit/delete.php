@@ -12,7 +12,7 @@ function get($arr, $key){
 }
 if(isset($_GET["thingId"])){
     $thingId = $_GET["thingId"];
-    $stmt = $db->prepare("SELECT * FROM Things where id = :id");
+    $stmt = $db->prepare("SELECT * FROM Survey where id = :id");
     $stmt->execute([":id"=>$thingId]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     if(!$result){
