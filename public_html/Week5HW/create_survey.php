@@ -1,26 +1,27 @@
 <form method="POST">
-	<label for="thing">Type a Question Category:
+	<label for="thing">Category Name:
 	<input type="text" id="thing" name="name" />
 	</label>
-	<label for="q">Create a Question:
-	<input type="text" id="q" name="quantity" />
+	<label for="q">Number of Questions:
+	<input type="number" id="q" name="quantity" />
 	</label>
 	<input type="submit" name="created" value="Create Question"/>
 </form>
 
+
 <?php
 if(isset($_POST["created"])){
-    $title = $_POST["title"];
-    $description = $_POST["description"];
-    if(!empty($title) && !empty($description)){
+    $name = $_POST["name"];
+    $quantity = $_POST["quantity"];
+    if(!empty($name) && !empty($quantity)){
         require("config.php");
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         try{
             $db = new PDO($connection_string, $dbuser, $dbpass);
-            $stmt = $db->prepare("INSERT INTO Survey (title, description) VALUES (:title, :description)");
+            $stmt = $db->prepare("INSERT INTO Things (name, quantity) VALUES (:name, :quantity)");
             $result = $stmt->execute(array(
-                ":title" => $title,
-                ":description" => $description
+                ":name" => $name,
+                ":quantity" => $quantity
             ));
             $e = $stmt->errorInfo();
             if($e[0] != "00000"){
