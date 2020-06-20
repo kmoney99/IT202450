@@ -25,17 +25,17 @@ if(isset($_GET["thingId"])){
 ?>
 
 <form method="POST">
-	<label for="thing">Type a Question Category:
+	<label for="thing">Edit the Question's Category:
 	<input type="text" id="thing" name="name" value="<?php echo get($result, "name");?>" />
 	</label>
-	<label for="q">Number of questions to be asked?
-	<input type="number" id="q" name="quantity" value="<?php echo get($result, "quantity");?>" />
+	<label for="q">Edit the Question:
+	<input type="text" id="q" name="quantity" value="<?php echo get($result, "quantity");?>" />
 	</label>
     <?php if($thingId > 0):?>
-	    <input type="submit" name="updated" value="Update Thing"/>
-        <input type="submit" name="delete" value="Delete Thing"/>
+	    <input type="submit" name="updated" value="Update Question"/>
+        <input type="submit" name="delete" value="Delete Question"/>
     <?php elseif ($thingId < 0):?>
-        <input type="submit" name="created" value="Create Thing"/>
+        <input type="submit" name="created" value="Create Question"/>
     <?php endif;?>
 </form>
 

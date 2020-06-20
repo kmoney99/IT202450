@@ -2,10 +2,10 @@
 	<label for="thing">Type a Question Category:
 	<input type="text" id="thing" name="name" />
 	</label>
-	<label for="q">Number of questions to be asked?
-	<input type="number" id="q" name="quantity" />
+	<label for="q">Create a Question:
+	<input type="text" id="q" name="quantity" />
 	</label>
-	<input type="submit" name="created" value="Create Thing"/>
+	<input type="submit" name="created" value="Create Question"/>
 </form>
 
 <?php
