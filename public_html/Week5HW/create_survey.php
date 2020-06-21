@@ -5,9 +5,9 @@
 <form method="POST">
 <label for="Question Cat">Pick a question category:
   <select id="Category" name="title">
-  <option value="sp">Sports</option>
-  <option value="co">Countries</option>
-  <option value="in">World Wide Web</option>
+  <option value="sports">Sports</option>
+  <option value="countries">Countries</option>
+  <option value="internet">World Wide Web</option>
 </label>
   
   </select>
@@ -41,7 +41,7 @@ if(isset($_POST["created"])){
 		else{
                 echo var_export($result, true);
                 if ($result){
-                    echo "Successfully inserted new thing: " . $name;
+                    echo "Successfully inserted new thing: "  " , ". $name;
                 }
                 else{
                     echo "Error inserting record";
