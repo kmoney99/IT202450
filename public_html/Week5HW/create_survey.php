@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 
-<h1> Create the Question surveys </h1>
+<h1> Create your survey question here! </h1>
 <form method="POST">
 <label for="Question Cat">Pick a question category:
   <select id="Category" name="title">
@@ -41,7 +41,7 @@ if(isset($_POST["created"])){
 		else{
                 echo var_export($result, true);
                 if ($result){
-                    echo "Successfully inserted new thing: "  " , ". $name;
+                    echo "Successfully inserted new thing: ". $name;
                 }
                 else{
                     echo "Error inserting record";
