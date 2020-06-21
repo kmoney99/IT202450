@@ -47,10 +47,10 @@ else{
   </select>
 
   
- <label for="num">Edit your Question:
+ <label for="num">Delete your Question:
 	<input type="text" id="d" name="description" />
 	</label>
-	<input type="submit" name="created" value="Edit Question"/>
+	<input type="submit" name="created" value="Delete Question"/>
 	
 </form>
 
