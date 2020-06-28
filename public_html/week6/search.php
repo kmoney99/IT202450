@@ -9,8 +9,9 @@ if(isset($_POST["search"])){
 <form method="POST">
 <label for="Sort the Data">Sort the Surveys:
   <select id="Sort" name="title">
- <option value="SELECT * FROM `Survey` ORDER BY `id` ASC">Ascending Sort</option>
- <option value="SELECT * FROM `Survey`  ORDER BY `id` DESC">Descending Sort</option>
+  <select name="sql_query" class="autosubmit">
+ <option value="SELECT * FROM `Survey` ORDER BY `title` ASC">Ascending Sort</option>
+ <option value="SELECT * FROM `Survey`  ORDER BY `title` DESC">Descending Sort</option>
 
     <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> 
     <input type="submit" value="Search"/>
