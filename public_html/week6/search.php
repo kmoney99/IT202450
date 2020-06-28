@@ -9,7 +9,6 @@ if(isset($_POST["search"])){
 <form method="POST">
 <div class="container">
   <input placeholder='Search...' class='js-search' type="text"  value="<?php echo $search;?>"/>
-  <i class="fa fa-search"></i>
   <input type="submit" value="Search"/>
 </div>
 </form>
