@@ -7,12 +7,11 @@ if(isset($_POST["search"])){
 <link rel="stylesheet" type="text/css" href="style.css">
 <h1> Search for survey question </h1>
 <form method="POST">
-<div class="search">
-  <input type="search" class="search-box" />
-  <span class="search-button">
-    <span class="search-icon"></span>
-  </span>
+<div class="container">
+  <input placeholder='Search...' class='js-search' type="text">
+  <i class="fa fa-search"></i>
 </div>
+
 </form>
 <?php
 if(isset($search)) {
