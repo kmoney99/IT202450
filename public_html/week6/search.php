@@ -6,9 +6,12 @@ if(isset($_POST["search"])){
 ?>
 <h1> Search for survey question </h1>
 <form method="POST">
-    <input type="text" name="search" placeholder="Search for Surveys"
-    value="<?php echo $search;?>"/>
-    <input type="submit" value="Search"/>
+<div class="search">
+  <input type="search" class="search-box" />
+  <span class="search-button">
+    <span class="search-icon"></span>
+  </span>
+</div>
 </form>
 <?php
 if(isset($search)) {
