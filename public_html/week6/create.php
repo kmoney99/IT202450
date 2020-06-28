@@ -11,6 +11,7 @@
   
   </select>
 
+
   
  <label for="num">Enter your Question:
 	<input type="text" id="d" name="description" />
@@ -27,17 +28,10 @@ if(isset($_POST["created"])) {
     if(isset($_POST["title"]) && !empty($_POST["title"])){
         $title = $_POST["title"];
     }
-    if(isset($_POST["description"]) && !empty($_POST["description"])){
-        if(is_numeric($_POST["description"])){
-            $description = (int)$_POST["description"];
-        }
+	if(isset($_POST["description"]) && !empty($_POST["description"])){
+        $description = $_POST["description"];
     }
-if(!empty($title) || (!empty($description))) {
-        
-		echo "Fields cannot be empty";
-		
-        die();
-	 }
+
     try {
         require("common.inc.php");
         $query = file_get_contents(__DIR__ . "/queries/INSERT_TABLE_SURVEY.sql");
