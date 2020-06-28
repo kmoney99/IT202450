@@ -1,0 +1,1 @@
+UPDATE Surveys set title = :title, description =:description where id=:id

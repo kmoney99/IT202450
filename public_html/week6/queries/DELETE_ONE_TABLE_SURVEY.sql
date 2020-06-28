@@ -1,0 +1,1 @@
+DELETE FROM Surveys WHERE ID = :id
