@@ -12,16 +12,17 @@ if(isset($_POST["search"])){
   <option>Ascending Sort</option>
   <option>Descending Sort</option>
 
-    <div> <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> </div>
-   <div> <input type="submit" value="Search"/> </div>
+    <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> 
+    <input type="submit" value="Search"/>
 
 </form>
+
 
 <?php
 if(isset($search)) {
 
     require("common.inc.php");
-    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql");
+    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql", "select * from Survey order by id desc" );
     if (isset($query) && !empty($query)) {
         try {
             $stmt = getDB()->prepare($query);
