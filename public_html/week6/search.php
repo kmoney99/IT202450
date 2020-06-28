@@ -5,15 +5,14 @@ if(isset($_POST["search"])){
 }
 ?>
 <link rel="stylesheet" type="text/css" href="sty.css">
+<div>
 <h3> Search for survey question </h3>
 <form method="POST">
-<div class="container">
-  <input placeholder='Search...' class='js-search' type="text"  value="<?php echo $search;?>"/>
-  <input type="submit" value="Search"/>
+    <input type="text" name="search" placeholder="Search for Thing"
+    value="<?php echo $search;?>"/>
+    <input type="submit" value="Search"/>
+</form>
 </div>
-</form>
-
-</form>
 <?php
 if(isset($search)) {
 
