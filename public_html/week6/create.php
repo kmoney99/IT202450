@@ -4,9 +4,9 @@
 <form method="POST">
 <label for="Question Cat">Pick a question category:
   <select id="Category" name="title">
-  <option value="sports">Sports</option>
-  <option value="countries">Countries</option>
-  <option value="internet">World Wide Web</option>
+  <option value="Sports">Sports</option>
+  <option value="Countries">Countries</option>
+  <option value="Internet">World Wide Web</option>
 </label>
   
   </select>
