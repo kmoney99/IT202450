@@ -4,7 +4,7 @@ if(isset($_POST["search"])){
     $search = $_POST["search"];
 }
 ?>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="sty.css">
 <h1> Search for survey question </h1>
 <form method="POST">
 <div class="container">
