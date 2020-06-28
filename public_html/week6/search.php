@@ -8,7 +8,7 @@ if(isset($_POST["search"])){
 <div>
 <h3> Search for survey question </h3>
 <form method="POST">
-    <input type="text" name="search" placeholder="Search for Thing"
+    <input type="text" name="search" placeholder="Search.."
     value="<?php echo $search;?>"/>
     <input type="submit" value="Search"/>
 </form>
