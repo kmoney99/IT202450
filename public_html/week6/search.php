@@ -9,8 +9,8 @@ if(isset($_POST["search"])){
 <form method="POST">
 <label for="Sort the Data">Sort the Surveys:
   <select id="Sort" name="title">
-  <option>Ascending Sort</option>
-  <option>Descending Sort</option>
+ <option value="SELECT * FROM `Survey` ORDER BY `id` ASC">Ascending Sort</option>
+ <option value="SELECT * FROM `Survey`  ORDER BY `id` DESC">Descending Sort</option>
 
     <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> 
     <input type="submit" value="Search"/>
@@ -22,7 +22,7 @@ if(isset($_POST["search"])){
 if(isset($search)) {
 
     require("common.inc.php");
-    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql", "select * from Survey order by id desc" );
+    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql");
     if (isset($query) && !empty($query)) {
         try {
             $stmt = getDB()->prepare($query);

@@ -14,10 +14,49 @@
  <label for="num">Enter your Question:
 	<input type="text" id="d" name="description" />
 	</label>
-	<label for="num">Enter your Question Number:
-	<input type="number" id="d" name="number" />
-	</label>
 	<input type="submit" name="created" value="Create Question"/>
 	
 </form>
 
+<?php
+
+if(isset($_POST["created"])) {
+    $title = "";
+    $description = "";
+
+    if(isset($_POST["title"]) && !empty($_POST["title"])){
+        $title = $_POST["title"];
+    }
+	if(isset($_POST["description"]) && !empty($_POST["description"])){
+        $description = $_POST["description"];
+    }
+
+    try {
+        require("common.inc.php");
+        $query = file_get_contents(__DIR__ . "/queries/INSERT_TABLE_SURVEY.sql");
+        if(isset($query) && !empty($query)) {
+            $stmt = getDB()->prepare($query);
+            $result = $stmt->execute(array(
+                ":title" => $title,
+                ":description" => $description
+            ));
+            $e = $stmt->errorInfo();
+            if ($e[0] != "00000") {
+                echo var_export($e, true);
+            } else {
+                if ($result) {
+                    echo "Successfully inserted new Survey: " . $title;
+                } else {
+                    echo "Error inserting record";
+                }
+            }
+        }
+        else{
+            echo "Failed to find INSERT_TABLE_SURVEY.sql file";
+        }
+    }
+    catch (Exception $e){
+        echo $e->getMessage();
+    }
+}
+?>	
