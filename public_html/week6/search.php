@@ -4,13 +4,11 @@ if(isset($_POST["search"])){
     $search = $_POST["search"];
 }
 ?>
-<link rel="stylesheet" type="text/css" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<h2>Search Button</h2>
-<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-  <input type="text" placeholder="Search.." name="search2">
-  <button type="submit"><i class="fa fa-search"></i></button>
+<h1> Search for survey question </h1>
+<form method="POST">
+    <input type="text" name="search" placeholder="Search for Surveys"
+    value="<?php echo $search;?>"/>
+    <input type="submit" value="Search"/>
 </form>
 <?php
 if(isset($search)) {

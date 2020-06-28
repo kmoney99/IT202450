@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Surveys (
+CREATE TABLE IF NOT EXISTS Survey (
     id int auto_increment,
 	question_id int auto_increment, 
 	title varchar(30) not null unique,
