@@ -5,14 +5,19 @@ if(isset($_POST["search"])){
 }
 ?>
 <link rel="stylesheet" type="text/css" href="sty.css">
-<div>
 <h3> Search for survey question </h3>
 <form method="POST">
+<label for="Sort the Data">Sort the Surveys:
+  <select id="Sort" name="title">
+  <option>Ascending Sort</option>
+  <option>Descending Sort</option>
+<div>
     <input type="text" name="search" placeholder="Search.."
-    value="<?php echo $search;?>"/>
+    value="<?php echo $search;?>"/> 
     <input type="submit" value="Search"/>
+	</div>
 </form>
-</div>
+
 <?php
 if(isset($search)) {
 
