@@ -1,15 +1,24 @@
-<script src="js/script.js"></script>
-<!-- note although <script> tag "can" be self terminating some browsers require the
-full closing tag-->
-<form method="POST" onsubmit="return validate(this);">
-    <label for="survey">Survey Name
-        <input type="text" id="survey" name="title" required />
-    </label>
-    <label for="q">Description
-        <input type="text" id="description" name="description"/>
-    </label>
-    <input type="submit" name="created" value="Create Survey"/>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h1> Create your survey question here! </h1>
+<form method="POST">
+<label for="Question Cat">Pick a question category:
+  <select id="Category" name="title">
+  <option value="sports">Sports</option>
+  <option value="countries">Countries</option>
+  <option value="internet">World Wide Web</option>
+</label>
+  
+  </select>
+
+  
+ <label for="num">Enter your Question:
+	<input type="text" id="d" name="description" />
+	</label>
+	<input type="submit" name="created" value="Create Question"/>
+	
 </form>
+
 <?php
 
 if(isset($_POST["created"])) {
@@ -23,7 +32,7 @@ if(isset($_POST["created"])) {
             $description = (int)$_POST["description"];
         }
     }
-if(empty($title) || (empty($description))) {
+if(!empty($title) || (!empty($description))) {
         
 		echo "Fields cannot be empty";
 		
