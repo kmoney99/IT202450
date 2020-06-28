@@ -23,8 +23,10 @@ if(isset($_POST["created"])) {
             $description = (int)$_POST["description"];
         }
     }
-if(empty($title) || (empty($description) {
-        echo "Title and description can not be empty";
+if(empty($title) || (empty($description))) {
+        
+		echo "Fields cannot be empty";
+		
         die();
 	 }
     try {
