@@ -1,1 +1,1 @@
-SELECT * FROM Surveys
+SELECT * FROM Survey
