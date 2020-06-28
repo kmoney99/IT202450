@@ -79,16 +79,28 @@ else{
     echo "No surveyID provided in url, don't forget this or sample won't work.";
 }
 ?>
-<script src="js/script.js"></script>
-<!-- note although <script> tag "can" be self terminating some browsers require the
-full closing tag-->
-<form method="POST"onsubmit="return validate(this);">
-<label for="survey">Survey Name
-        <input type="text" id="survey" name="title" required />
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h1> Edit your survey question here! </h1>
+<form method="POST">
+<label for="Question Cat">Pick a question category:
+  <select id="Category" name="title">
+  <option value="sports">Sports</option>
+  <option value="countries">Countries</option>
+  <option value="internet">World Wide Web</option>
+</label>
+  
+  </select>
+
+ <label for="q">Quantity
+        <input type="number" id="q" name="quantity" required min="0" />
     </label>
-    <label for="q">Description
-        <input type="text" id="description" name="description" required />
-    </label>
-<input type="submit" name="updated" value="Update Survey"/>
+  
+ <label for="num">Enter your Question:
+	<input type="text" id="d" name="description" />
+	</label>
+	<input type="submit" name="created" value="Edit Question"/>
+	
 </form>
 
+<?php
