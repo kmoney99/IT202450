@@ -11,11 +11,10 @@ if(isset($_POST["search"])){
   <select id="Sort" name="title">
   <option>Ascending Sort</option>
   <option>Descending Sort</option>
-<div>
-    <input type="text" name="search" placeholder="Search.."
-    value="<?php echo $search;?>"/> 
-    <input type="submit" value="Search"/>
-	</div>
+
+    <div> <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> </div>
+   <div> <input type="submit" value="Search"/> </div>
+
 </form>
 
 <?php
