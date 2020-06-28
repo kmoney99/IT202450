@@ -1,9 +1,7 @@
-CREATE TABLE IF NOT EXISTS Survey (
+CREATE TABLE Survey(
     id int auto_increment,
-	question_id int auto_increment, 
-	title varchar(30) not null unique,
-	description TEXT,
-    created datetime default current_timestamp,
-    modified datetime default current_timestamp on update current_timestamp,
+    title varchar(30) not null unique,
+    description TEXT,
+    visibility int, 
     primary key (id)
 )
