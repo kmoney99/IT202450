@@ -9,9 +9,9 @@ if(isset($_POST["search"])){
 <form method="POST">
 <label for="Sort the Data">Sort the Surveys:
   <select id="Sort" name="title">
- <option value= query "SELECT * FROM `Survey` ORDER BY `title` ASC">Ascending Sort</option>
+ <option value= query "SELECT * FROM `Surveys` ORDER BY `title` ASC">Ascending Sort</option>
  
- <option value= query "SELECT * FROM `Survey`  ORDER BY `title` DESC">Descending Sort</option>
+ <option value= query "SELECT * FROM `Surveys`  ORDER BY `title` DESC">Descending Sort</option>
 
     <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> 
     <input type="submit" value="Search"/>
@@ -23,12 +23,12 @@ if(isset($_POST["search"])){
 if(isset($search)) {
 
     require("common.inc.php");
-    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql");
+    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEYS.sql");
     if (isset($query) && !empty($query)) {
         try {
             $stmt = getDB()->prepare($query);
             //Note: With a LIKE query, we must pass the % during the mapping
-            $stmt->execute([":survey"=>$search]);
+            $stmt->execute([":surveys"=>$search]);
             //Note the fetchAll(), we need to use it over fetch() if we expect >1 record
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
