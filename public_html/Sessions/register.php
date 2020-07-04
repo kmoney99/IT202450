@@ -1,4 +1,5 @@
 <form method="POST">
+<h4>Register</h4>
 	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
