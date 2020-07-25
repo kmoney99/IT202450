@@ -27,7 +27,10 @@ $logged_in = Common::is_logged_in(false);
         <?php endif; ?>
         <?php if(!$logged_in):?>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("login");?>">Login</a>
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("login");?>">Please Login</a>
             </li>
             <li class="nav-item" style = "margin-left: 10px;">
                 <a style="
