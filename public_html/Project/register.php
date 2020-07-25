@@ -2,7 +2,7 @@
 include_once(__DIR__."/partials/header.partial.php");
 ?>
     <div>
-	<button type="button" class="btn btn-success" href=&quot;/Project/includes/../login.php&quot;">Login</button>
+	<button type="button" class="btn btn-success" href="&quot;/Project/includes/../login.php&quot;">Login</button>
       <h1>Register</h1>
         <form method="POST">
             <div>
