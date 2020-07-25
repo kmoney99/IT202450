@@ -29,12 +29,18 @@ $logged_in = Common::is_logged_in(false);
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo Common::url_for("login");?>">Login</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("register");?>">Register</a>
+            <li class="nav-item" style = "margin-left: 10px;">
+                <a style="
+    color: black;
+    font-weight: bold;
+" class="nav-link" href="<?php echo Common::url_for("register");?>">Register</a>
             </li>
         <?php else:?>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("logout");?>">Logout</a>
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("logout");?>">Logout</a>
             </li>
         <?php endif; ?>
     </ul>

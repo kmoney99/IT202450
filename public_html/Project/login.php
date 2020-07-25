@@ -53,9 +53,8 @@ include_once(__DIR__."/partials/header.partial.php");
     width: fit-content;
     margin-top: 1em;
 ">
-    <input type="submit" name="submit" value="Login" style="
-    border-radius: 5px;
-">
+    <input type="submit" class="btn btn-warning" name="submit" value="Login" style="border-radius: 5px;">
+
 </div>
         </form>
     </div>
