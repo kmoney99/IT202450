@@ -1,19 +1,18 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-
     <div>
         <h4>Login</h4>
         <form method="POST">
-           <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit">Login</button>
-    <label> 
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required/>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required min="3"/>
+            </div>
+            <input type="submit" name="submit" value="Login"/>
         </form>
     </div>
 <?php
