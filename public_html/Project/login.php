@@ -46,6 +46,7 @@ if (Common::get($_POST, "submit", false)){
 				}
 				else{
 					$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				}
 					if ($result){
 						$rpassword = $result["password"];
 						if(password_verify($password, $rpassword)){
