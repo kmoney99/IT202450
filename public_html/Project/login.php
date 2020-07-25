@@ -4,17 +4,7 @@ include_once(__DIR__."/partials/header.partial.php");
     <html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <!-- Include jQuery 3.5.1-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-</head><body data-gr-c-s-loaded="true"><nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                <a class="nav-link" href="/Project/includes/../login.php">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Project/includes/../register.php">Register</a>
-            </li>
-        		 
-    </ul>
-</nav>
+</head><body data-gr-c-s-loaded="true">
 <div id="messages">
         </div>    <div style="
     margin: 0 auto;
