@@ -1,36 +1,20 @@
-<?php
-include_once(__DIR__."/partials/header.partial.php");
-?>
-
 <?php include("header.php");?>
-
-<link rel="stylesheet" type="text/css" href="style.css">
-
-<h1 style="background-color:Tomato;">Register</h1>
-
+<h4>Register</h4>
 <form method="POST">
-
- <div style='text-align:center'>
-
-	<label for="email">Email:<font color=red>*</font>
+	<label for="email">Email
 	<input type="email" id="email" name="email" autocomplete="off" />
 	</label>
-
-	<label for="p">Password:<font color=red>*</font>
+	<label for="p">Password
 	<input type="password" id="p" name="password" autocomplete="off"/>
 	</label>
-
-	<label for="cp">Confirm Password:<font color=red>*</font>
+	<label for="cp">Confirm Password
 	<input type="password" id="cp" name="cpassword"/>
 	</label>
-
 	<input type="submit" name="register" value="Register"/>
-
 </form>
 
-
-
 <?php
+
 //echo var_export($_GET, true);
 //echo var_export($_POST, true);
 //echo var_export($_REQUEST, true);
@@ -41,7 +25,7 @@ if(isset($_POST["register"])){
 		$email = $_POST["email"];
 		if($password == $cpassword){
 			//echo "<div>Passwords Match</div>";
-			require("config.php");
+			//require("config.php");
 			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 			try{
 				$db = new PDO($connection_string, $dbuser, $dbpass);
