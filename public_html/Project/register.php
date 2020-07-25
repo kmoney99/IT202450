@@ -2,23 +2,72 @@
 include_once(__DIR__."/partials/header.partial.php");
 ?>
     <div>
+	<form method="POST">
         <h4>Register</h4>
+		<div id="messages">
+        </div>    <div style="
+    margin: 0 auto;
+    width: fit-content;
+    /* margin-top: auto !important; */
+    margin-top: 2em;
+    color: white;
+">
+        <h4 style="
+    /* margin: 0 auto; */
+    text-align: center;
+">Please Register</h4>
         <form method="POST">
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required/>
+            <div style="
+    margin-top: 2em;
+">
+                <label for="email" style="
+    display: block;
+    text-align: center;
+">Email</label>
+                <input type="email" id="email" name="email" required="" style="
+    /* margin-left: 1.6rem; */
+    display: block;
+">
             </div>
             <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required min="3"/>
-            </div>
-            <div>
-                <label for="cpassword">Confirm Password</label>
-                <input type="password" id="cpassword" name="cpassword" required min="3"/>
-            </div>
-            <input type="submit" name="submit" value="Register"/>
+                <label for="password" style="
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+">Password</label>
+                <input type="password" id="password" name="password" required="" min="3" style="
+    margin: 0 auto;
+    width: fit-content;
+    /* text-align: center; */
+">
+
+<label for="password" style="
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+">Confirm Password</label>
+                <input type="password" id="cpassword" name="cpassword" required="" min="3" style="
+    margin: 0 auto;
+    width: fit-content;
+    /* text-align: center; */
+">
+
+            <div style="
+    margin: 0 auto;
+    width: fit-content;
+    margin-top: 1em;
+">
+    <input type="submit" class="btn btn-warning" name="submit" value="Register" style="border-radius: 5px;">
+
+</div>
         </form>
     </div>
+
+</body></html>
+
+ 
+            
+             
 <?php
 if (Common::get($_POST, "submit", false)){
     $email = Common::get($_POST, "email", false);
