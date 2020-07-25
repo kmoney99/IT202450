@@ -1,4 +1,5 @@
 <?php
 include("header.php");
-echo "test";
+header("Location: /Project/login.php");
+exit();
 ?>

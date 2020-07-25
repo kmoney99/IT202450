@@ -4,13 +4,20 @@ include_once(__DIR__."/partials/header.partial.php");
     <html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <!-- Include jQuery 3.5.1-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-</head><body data-gr-c-s-loaded="true">
+</head><body data-gr-c-s-loaded="true" style="
+    background: #28334Aff;
+"><div id="messages">
+        </div>    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!-- Include jQuery 3.5.1-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 <div id="messages">
         </div>    <div style="
     margin: 0 auto;
     width: fit-content;
     /* margin-top: auto !important; */
     margin-top: 2em;
+    color: white;
 ">
         <h4 style="
     /* margin: 0 auto; */
@@ -52,6 +59,7 @@ include_once(__DIR__."/partials/header.partial.php");
 </div>
         </form>
     </div>
+
 </body></html>
 <?php
 if (Common::get($_POST, "submit", false)){
