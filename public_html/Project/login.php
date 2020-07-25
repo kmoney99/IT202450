@@ -1,9 +1,7 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-<?php
-include("header.php");
-?>
+
     <div>
         <h4>Login</h4>
         <form method="POST">
