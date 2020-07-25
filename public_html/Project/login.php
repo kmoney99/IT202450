@@ -1,20 +1,68 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-    <div>
-        <h4>Login</h4>
+    <html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!-- Include jQuery 3.5.1-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</head><body data-gr-c-s-loaded="true"><nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                <a class="nav-link" href="/Project/includes/../login.php">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Project/includes/../register.php">Register</a>
+            </li>
+        		 
+    </ul>
+</nav>
+<div id="messages">
+        </div>    <div style="
+    margin: 0 auto;
+    width: fit-content;
+    /* margin-top: auto !important; */
+    margin-top: 2em;
+">
+        <h4 style="
+    /* margin: 0 auto; */
+    text-align: center;
+">Login</h4>
         <form method="POST">
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required/>
+            <div style="
+    margin-top: 2em;
+">
+                <label for="email" style="
+    display: block;
+    text-align: center;
+">Email</label>
+                <input type="email" id="email" name="email" required="" style="
+    /* margin-left: 1.6rem; */
+    display: block;
+">
             </div>
             <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required min="3"/>
+                <label for="password" style="
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+">Password</label>
+                <input type="password" id="password" name="password" required="" min="3" style="
+    margin: 0 auto;
+    width: fit-content;
+    /* text-align: center; */
+">
             </div>
-            <input type="submit" name="submit" value="Login"/>
+            <div style="
+    margin: 0 auto;
+    width: fit-content;
+    margin-top: 1em;
+">
+    <input type="submit" name="submit" value="Login" style="
+    border-radius: 5px;
+">
+</div>
         </form>
     </div>
+</body></html>
 <?php
 if (Common::get($_POST, "submit", false)){
     $email = Common::get($_POST, "email", false);
