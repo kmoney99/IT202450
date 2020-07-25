@@ -1,8 +1,8 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-    <div style="margin: 0 auto;">
-        <h4>Login</h4>
+    <div style="margin: 0 auto; width: fit-content;">
+        <h4 style = "text-align: center">Login</h4>
         <form method="POST">
             <div>
                 <label for="email">Email</label>
