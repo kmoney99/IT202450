@@ -2,7 +2,8 @@
 include_once(__DIR__."/partials/header.partial.php");
 ?>
     <div>
-        <h4>Register</h4>
+	<button type="button" class="btn btn-success" style="href=&quot;/Project/includes/../login.php&quot;;">Login</button>
+      <h1>Register</h1>
         <form method="POST">
             <div>
                 <label for="email">Email</label>
