@@ -1,27 +1,20 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-<?php
-include("header.php");
-?>
-<link rel="stylesheet" type="text/css" href="style.css">
-
-<h1 style="background-color:Blue;">Login</h1>
-
-<form method="POST">
-
- <div style='text-align:center'>
-
-	<label for="email">Email:<font color=red>*</font>
-	<input type="email" id="email" name="email" autocomplete="off" />
-	</label>
-
-	<label for="p">Password:<font color=red>*</font>
-	<input type="password" id="p" name="password" autocomplete="off"/>
-	</label>
-	<input type="submit" name="login" value="Login"/>
-</form>
-
+    <div>
+        <h4>Login</h4>
+        <form method="POST">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required/>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required min="3"/>
+            </div>
+            <input type="submit" name="submit" value="Login"/>
+        </form>
+    </div>
 <?php
 if (Common::get($_POST, "submit", false)){
     $email = Common::get($_POST, "email", false);
