@@ -1,7 +1,7 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-    <div>
+    <div style="margin: 0 auto;">
         <h4>Login</h4>
         <form method="POST">
             <div>
