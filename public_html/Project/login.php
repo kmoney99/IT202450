@@ -1,6 +1,8 @@
-
-    <div style="margin: 0 auto; width: fit-content;">
-        <h4 style = "text-align: center">Login</h4>
+<?php
+include_once(__DIR__."/partials/header.partial.php");
+?>
+    <div>
+        <h4>Login</h4>
         <form method="POST">
             <div>
                 <label for="email">Email</label>
@@ -13,43 +15,56 @@
             <input type="submit" name="submit" value="Login"/>
         </form>
     </div>
-	<?php 
-if(isset($_POST["login"])){
-	if(isset($_POST["password"]) && isset($_POST["email"])){
-		$password = $_POST["password"];
-		$email = $_POST["email"];
-		require("config.php");
-			$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-			try{
-				$db = new PDO($connection_string, $dbuser, $dbpass);
-				$stmt = $db->prepare("SELECT * FROM Users where email = :email LIMIT 1");
-				$stmt->execute(array(
-					":email" => $email
-				));
-				$e = $stmt->errorInfo();
-				if($e[0] != "00000"){
-					echo var_export($e, true);
-				}
-				else{
-					$result = $stmt->fetch(PDO::FETCH_ASSOC);
-					if ($result){
-						$rpassword = $result["password"];
-						if(password_verify($password, $rpassword)){
-							echo "<div>Passwords matched! You are technically logged in!</div>";
-						}
-						else{
-							echo "<div>Invalid password!</div>";
-						}
-					}
-					else{
-						echo "<div>Invalid user</div>";
-					}
-					//echo "<div>Successfully registered!</div>";
-				}
-			}
-			catch (Exception $e){
-				echo $e->getMessage();
-			}
-	}
+<?php
+if (Common::get($_POST, "submit", false)){
+    $email = Common::get($_POST, "email", false);
+    $password = Common::get($_POST, "password", false);
+    if(!empty($email) && !empty($password)){
+        $result = DBH::login($email, $password);
+        echo var_export($result, true);
+        if(Common::get($result, "status", 400) == 200){
+            $_SESSION["user"] = Common::get($result, "data", NULL);
+
+            //fetch system user id and put it in session to reduce DB calls to fetch it when we need
+            //to generate points from activity on the app
+            $result = DBH::get_system_user_id();
+            $result = Common::get($result, "data", false);
+            if($result) {
+                $_SESSION["system_id"] = Common::get($result, "id", -1);
+                error_log("Got system_id " . $_SESSION["system_id"]);
+            }
+            //end system user fetch
+            //get user tank(s) and store in session, not necessary but saves extra DB calls later
+            $result = DBH::get_tanks(Common::get_user_id());
+            if(Common::get($result, "status", 400) == 200){
+                $tanks = Common::get($result, "data", []);
+                if(count($tanks) == 0) {
+                    //this section is needed to give any previously existing users a tank that didn't have a tank before
+                    //this feature was created/added
+                    $result = DBH::create_tank(Common::get_user_id());
+                    if (Common::get($result, "status", 400) == 200) {
+                        $result = DBH::get_tanks(Common::get_user_id());
+                        if (Common::get($result, "status", 400) == 200) {
+                            $tanks = Common::get($result, "data", []);
+                        }
+                    }
+                }
+                //finally let's save our tanks in session
+                $_SESSION["user"]["tanks"] = $tanks;
+            }
+            //end get tanks
+
+            die(header("Location: " . Common::url_for("home")));
+        }
+        else{
+            Common::flash(Common::get($result, "message", "Error logging in"));
+            die(header("Location: " . Common::url_for("login")));
+        }
+    }
+    else{
+        Common::flash("Email and password must not be empty", "warning");
+        die(header("Location: " . Common::url_for("login")));
+    }
 }
 ?>
+

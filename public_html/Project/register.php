@@ -1,3 +1,7 @@
+<?php
+include_once(__DIR__."/partials/header.partial.php");
+?>
+
 <?php include("header.php");?>
 
 <link rel="stylesheet" type="text/css" href="style.css">
