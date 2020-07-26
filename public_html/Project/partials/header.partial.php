@@ -33,6 +33,15 @@ $logged_in = Common::is_logged_in(false);
 	margin: 10px;
 	" href="<?php echo Common::url_for("create_questionnaire");?>">Create Custom Survey</a>
                 </li>
+				
+				                <li class="nav-item">
+                    <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="<?php echo Common::url_for("create_questionnaire_admin");?>">Create Custom Survey Admin Only</a>
+                </li>
+				
             <li class="nav-item">
                 <a class="nav-link" style="
     color: black;
