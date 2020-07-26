@@ -1,15 +1,15 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
 ?>
-
-<html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <html><head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <!-- Include jQuery 3.5.1-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </head><body data-gr-c-s-loaded="true" style="
     background: #28334Aff;
 "><nav class="navbar navbar-expand-lg navbar-dark bg-warning">
     <ul class="navbar-nav mr-auto" style="margin: 0 auto;">
-                            <li class="nav-item">
+        
+<li class="nav-item">
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
@@ -23,9 +23,6 @@ include_once(__DIR__."/partials/header.partial.php");
             </li>
             </ul>
 </nav>
-<div id="messages">
-        </div>
-
 <div id="messages">
         </div>    <div>
 	<form method="POST">
@@ -88,29 +85,14 @@ include_once(__DIR__."/partials/header.partial.php");
 </div>
         
     </div>
-        
-</div></form></div>     
+
+
+
+ 
+            
              
-    
+</div></form></div></body></html>     
              
-
-
-</body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 if (Common::get($_POST, "submit", false)){
     $email = Common::get($_POST, "email", false);
