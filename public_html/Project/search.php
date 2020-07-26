@@ -1,4 +1,8 @@
 <?php
+include_once(__DIR__."/partials/header.partial.php");
+?>
+
+<?php
 $search = "";
 if(isset($_POST["search"])){
     $search = $_POST["search"];
