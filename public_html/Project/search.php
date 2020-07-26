@@ -8,49 +8,7 @@ if(isset($_POST["search"])){
     $search = $_POST["search"];
 }
 ?>
-<html><head><link 
-                <a class="nav-link" style="
-    color: black;
-    font-weight: bold;
-	margin: 10px;
-	" href="/Project/includes/../home.php">Home</a>
-            </li>
-			<li class="nav-item">
-                <a class="nav-link" style="
-    color: black;
-    font-weight: bold;
-	margin: 10px;
-	" href="/Project/includes/../search.php">Search</a>
-            </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="
-    color: black;
-    font-weight: bold;
-	margin: 10px;
-	" href="/Project/includes/../create_questionnaire.php">Create Custom Survey</a>
-                </li>
-            <li class="nav-item">
-                <a class="nav-link" style="
-    color: black;
-    font-weight: bold;
-	margin: 10px;
-	" href="/Project/includes/../surveys.php">Surveys</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="
-    color: black;
-    font-weight: bold;
-	margin: 10px;
-	" href="/Project/includes/../TakenSurveys.php">Surveys you've Taken</a>
-            </li>
-                            <li class="nav-item">
-                <a class="nav-link" style="
-    color: black;
-    font-weight: bold;
-	margin: 10px;
-	" href="/Project/includes/../logout.php">Logout</a>
-            </li>
-            </ul>
+<html><head><body>
 </nav>
 <div id="messages">
         </div>
@@ -78,6 +36,7 @@ if(isset($_POST["search"])){
 
 
 </label></form></body></html>
+
 
 
 <?php
