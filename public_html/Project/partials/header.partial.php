@@ -16,30 +16,35 @@ $logged_in = Common::is_logged_in(false);
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("home");?>">Home</a>
             </li>
 			<li class="nav-item">
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("search");?>">Search</a>
             </li>
                 <li class="nav-item">
                     <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("create_questionnaire");?>">Create Custom Survey</a>
                 </li>
             <li class="nav-item">
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("surveys");?>">Surveys</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("TakenSurveys");?>">Surveys you've Taken</a>
             </li>
         <?php endif; ?>
@@ -48,12 +53,14 @@ $logged_in = Common::is_logged_in(false);
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("login");?>">Login</a>
             </li>
             <li class="nav-item" style = "margin-left: 10px;">
                 <a style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 " class="nav-link" href="<?php echo Common::url_for("register");?>">Register</a>
             </li>
         <?php else:?>
@@ -61,6 +68,7 @@ $logged_in = Common::is_logged_in(false);
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
+	margin: 10px;
 	" href="<?php echo Common::url_for("logout");?>">Logout</a>
             </li>
         <?php endif; ?>

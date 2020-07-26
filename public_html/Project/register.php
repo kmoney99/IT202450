@@ -17,6 +17,7 @@ include_once(__DIR__."/partials/header.partial.php");
     width: fit-content;
     /* margin-top: auto !important; */
     margin-top: 2em;
+	
     color: white;
 ">
         <h4 style="
