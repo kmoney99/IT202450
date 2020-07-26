@@ -1,0 +1,1 @@
+INSERT INTO Questions (Question, Answer) VALUES (:Question, :Answer)
