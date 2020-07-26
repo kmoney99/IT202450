@@ -15,6 +15,9 @@ $logged_in = Common::is_logged_in(false);
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo Common::url_for("home");?>">Home</a>
             </li>
+			<li class="nav-item">
+                <a class="nav-link" href="<?php echo Common::url_for("search");?>">Search</a>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo Common::url_for("create_questionnaire");?>">Create Custom Survey</a>
                 </li>
