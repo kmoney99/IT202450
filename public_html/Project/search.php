@@ -8,19 +8,76 @@ if(isset($_POST["search"])){
     $search = $_POST["search"];
 }
 ?>
+<html><head><link 
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="/Project/includes/../home.php">Home</a>
+            </li>
+			<li class="nav-item">
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="/Project/includes/../search.php">Search</a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="/Project/includes/../create_questionnaire.php">Create Custom Survey</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="/Project/includes/../surveys.php">Surveys</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="/Project/includes/../TakenSurveys.php">Surveys you've Taken</a>
+            </li>
+                            <li class="nav-item">
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	margin: 10px;
+	" href="/Project/includes/../logout.php">Logout</a>
+            </li>
+            </ul>
+</nav>
+<div id="messages">
+        </div>
 <link rel="stylesheet" type="text/css" href="sty.css">
-<h3> Search for survey question </h3>
+<h3 style="
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3rem;
+"> Search for survey question </h3>
 <form method="POST">
-<label for="Sort the Data">Sort the Surveys:
+<label for="Sort the Data" style="
+    margin-top: 5rem;
+    margin-left: 43rem;
+    font-weight: bolder;
+">Sort the Surveys:
   <select id="Sort" name="title">
- <option value= query "SELECT * FROM `Survey` ORDER BY `title` ASC">Ascending Sort</option>
+ <option value="query" "select="" *="" from="" `survey`="" order="" by="" `title`="" asc"="">Ascending Sort</option>
  
- <option value= query "SELECT * FROM `Survey`  ORDER BY `title` DESC">Descending Sort</option>
+ <option value="query" "select="" *="" from="" `survey`="" order="" by="" `title`="" desc"="">Descending Sort</option>
 
-    <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/> 
-    <input type="submit" value="Search"/>
+    </select><input type="text" name="search" placeholder="Search.." value=""> 
+    <input type="submit" value="Search">
 
-</form>
+
+
+
+</label></form></body></html>
 
 
 <?php
