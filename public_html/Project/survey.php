@@ -89,7 +89,8 @@ if(Common::get($_POST, "submit", false)){
 ?>
 <div class="container-fluid">
     <!-- see https://www.w3schools.com/php/func_array_reset.asp for use of current() function -->
-    <h3><?php echo Common::get(current($available)[0], "questionnaire_name");?></h3>
+     <?php echo var_export($available, true); ?>
+	<h3><?php echo Common::get(current($available)[0], "questionnaire_name");?></h3>
     <form method="POST">
         <div class="list-group">
             <?php foreach($available as $s): ?>
