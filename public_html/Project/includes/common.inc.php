@@ -163,8 +163,6 @@ class Common {
     public function getDB() {
         if (!isset($this->db)) {
             //Initialize all of these at once just to make the IDE happy
-			$db->setAttribute(PDO::ATTR_ERRMODE, 
-			PDO::ERRMODE_EXCEPTION);
             $dbdatabase = $dbuser = $dbpass = $dbhost = NULL;
             require_once(__DIR__ . "/config.php");
             if (isset($dbhost) && isset($dbdatabase) && isset($dbpass) && isset($dbuser)) {
