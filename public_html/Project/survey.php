@@ -28,12 +28,7 @@ if(Common::get($_POST, "submit", false)){
         if(strpos($key, "question") !== false) {
             $is_other = false;
             $question_id = (int)explode("-", $key)[1];
-            if (strpos($key, "other") !== false) {
-                if (trim(strlen($value)) > 0) {
-                    $is_other = true;
-                    $answer_id = (int)explode("-", $key)[3];
-                    array_push($response, ["question_id" => $question_id, "answer_id" => $answer_id, "user_input" => $value]);
-                }
+            
             }
             else{
                 array_push($response, ["question_id" => $question_id, "answer_id" => $value]);
@@ -49,7 +44,7 @@ if(Common::get($_POST, "submit", false)){
         Common::flash("Error recording response", "danger");
     }
     die(header("Location: surveys.php"));
-}
+
 ?>
 <div class="container-fluid">
     <!-- see https://www.w3schools.com/php/func_array_reset.asp for use of current() function -->
@@ -88,11 +83,3 @@ if(Common::get($_POST, "submit", false)){
         <input type="submit" class="btn btn-primary" name="submit" value="Submit Response"/>
     </form>
 </div>
-<script>
-    function selectChoice(ele){
-        $("[name=" + $(ele).attr("name") + "]").each(function(index, item){
-            $(item).closest("label").removeClass("active");
-        });
-        $(ele).closest("label").addClass("active");
-    }
-</script>
