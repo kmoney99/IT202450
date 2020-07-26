@@ -13,19 +13,34 @@ $logged_in = Common::is_logged_in(false);
     <ul class="navbar-nav mr-auto" style="margin: 0 auto;">
         <?php if($logged_in):?>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("home");?>">Home</a>
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("home");?>">Home</a>
             </li>
 			<li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("search");?>">Search</a>
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("search");?>">Search</a>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo Common::url_for("create_questionnaire");?>">Create Custom Survey</a>
+                    <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("create_questionnaire");?>">Create Custom Survey</a>
                 </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("surveys");?>">Surveys</a>
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("surveys");?>">Surveys</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo Common::url_for("TakenSurveys");?>">Surveys you've Taken</a>
+                <a class="nav-link" style="
+    color: black;
+    font-weight: bold;
+	" href="<?php echo Common::url_for("TakenSurveys");?>">Surveys you've Taken</a>
             </li>
         <?php endif; ?>
         <?php if(!$logged_in):?>
