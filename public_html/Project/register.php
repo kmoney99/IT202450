@@ -12,13 +12,13 @@ include_once(__DIR__."/partials/header.partial.php");
                 <a class="nav-link" style="
     color: black;
     font-weight: bold;
-	" href="/Project/includes/../login.php">Login</a>
+	" href="/Project/includes/../login.php"></a>
             </li>
             <li class="nav-item" style="margin-left: 10px;">
                 <a style="
     color: black;
     font-weight: bold;
-" class="nav-link" href="/Project/includes/../register.php">Register</a>
+" class="nav-link" href="/Project/includes/../register.php"></a>
             </li>
             </ul>
 </nav>
