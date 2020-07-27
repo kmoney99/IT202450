@@ -24,8 +24,6 @@
 
 </form>
 
-
-
 <?php
 //echo var_export($_GET, true);
 //echo var_export($_POST, true);
@@ -65,3 +63,4 @@ if(isset($_POST["register"])){
 	}
 }
 ?>
+
