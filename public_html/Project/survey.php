@@ -13,33 +13,7 @@ else{
     Common::flash("Not a valid survey", "warning");
     die(header("Location: surveys.php"));
 }
-if(!Common::get($_POST, "submit", false)){
-    $response = DBH::check_survey_status($questionnaire_id);
-    if(Common::get($response, "status", 400) == 200){
-        $data = Common::get($response, "data", []);
-        error_log(var_export($data, true));
-        $use_max = Common::get($data, "use_max", 0) == 1;
-        $today = (int)Common::get($data, "responses_today", 0);
-        $total = (int)Common::get($data, "responses_total", 0);
-        $max = (int)Common::get($data, "max_attempts", 0);
-        $apd = (int)Common::get($data, "attempts_per_day", 0);
-        if($use_max){
-            //TODO check query as this part doesn't seem accurate with the group by
-            //but the group by is needed for the "today" check
-            if($total >= $max){
-                Common::flash("Max responses have already been recorded for this survey", "warning");
-                die(header("Location: surveys.php"));
-            }
-        }
-        else{
-            if($today >= $apd){
-                Common::flash("Max responses have already been recorded today for this survey", "warning");
-                die(header("Location: surveys.php"));
-            }
-        }
-    }
-}
-//TODO: Note, internally calling them questionnaires (and for admin), user facing they're called surveys.
+
 $response = DBH::get_questionnaire_by_id($questionnaire_id);
 $available = [];
 if(Common::get($response, "status", 400) == 200){
@@ -67,20 +41,11 @@ if(Common::get($_POST, "submit", false)){
             }
         }
     }
-    //echo "<br><pre>" . var_export($response, true) . "</pre>";
-    if(count($response) > 0){
-        $response = DBH::save_response($questionnaire_id, $response);
-        if(Common::get($response, "status", 400) == 200){
-            Common::flash("Successfully recorded response", "success");
-            $result = DBH::changePoints(Common::get_user_id(), 1, -1, "survey", "Thanks for taking this survey");
-            if(Common::get($result, "status", 400) == 200) {
-                Common::flash("You earned 1 point, thanks for participating!", "success");
-            }
         }
         else{
             Common::flash("Error recording response", "danger");
         }
-    }
+
     else{
         Common::flash("Error recording response", "danger");
     }
