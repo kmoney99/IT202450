@@ -45,12 +45,8 @@ if(Common::get($_POST, "submit", false)){
         else{
             Common::flash("Error recording response", "danger");
         }
-
-    else{
-        Common::flash("Error recording response", "danger");
-    }
     die(header("Location: surveys.php"));
-}
+
 ?>
 <div class="container-fluid">
     <!-- see https://www.w3schools.com/php/func_array_reset.asp for use of current() function -->
