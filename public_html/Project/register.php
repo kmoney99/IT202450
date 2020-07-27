@@ -104,3 +104,4 @@ if (Common::get($_POST, "submit", false)){
         die(header("Location: register.php"));
     }
 }
+?>

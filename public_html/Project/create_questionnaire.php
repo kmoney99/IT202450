@@ -70,15 +70,7 @@ $last_updated = Common::get($_SESSION, "last_sync", false);
             else{
                 $is_valid = false;
                 Common::flash("Attempts per day must be a numerical value greater than zero", "danger");
-            }
-            $max_attempts = Common::get($_POST, "max_attempts", 0);
-            if(is_numeric($max_attempts) && (int)$max_attempts >= 0){
-                $max_attempts = (int)$max_attempts;
-            }
-            else{
-                $is_valid = false;
-                Common::flash("Max attempts must be a numerical value greater than or equal to zero, even if not used", "danger");
-            }
+            
             if($is_valid){
                 //TODO here's where it gets a tad hacky and there are better ways to do it.
                 $index = 0;
@@ -195,21 +187,7 @@ $last_updated = Common::get($_SESSION, "last_sync", false);
                             if(typeof($label) !== 'undefined' && $label != null){
                                 let forAttr = $label.attr("for");
                                 let pieces = forAttr.split('_');
-                                //Note this is different since it's a plain array not a jquery object
-                                let lastIndex = -1;
-                                pieces.forEach(function(item, index){
-                                    if(!isNaN(item)){
-                                        //question_#_answer_#
-                                        if(lastIndex == -1) {
-                                            //question_#
-                                            pieces[index] = liIndex;//replace the first # with the parent outer loop index
-                                            lastIndex = index;
-                                        }
-                                        else{
-                                            //question_#_answer_#
-                                            pieces[index] = childLiIndex;//replace the second # with the child loop index
-                                        }
-                                    }
+                     
                                 });
                                 let updatedRef = pieces.join("_");
                                 $label.attr("for", updatedRef);
