@@ -1,5 +1,5 @@
 <?php
 include("header.php");
-header("Location: /Project/login.php");
+header("Location: /surveyproject/login.php");
 exit();
 ?>
