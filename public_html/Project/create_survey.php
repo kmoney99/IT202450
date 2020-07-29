@@ -62,7 +62,7 @@ if(isset($_POST["created"])) {
     try {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
-            $stmt = getDB()->prepare($query);
+            $stmt = $common->getDB()->prepare($query);
             $result = $stmt->execute(array(
                 ":title" => $title,
                 ":description" => $description,
