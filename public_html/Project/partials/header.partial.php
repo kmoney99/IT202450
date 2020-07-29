@@ -23,7 +23,7 @@ $logged_in = Common::is_logged_in(false);
 
             <a class="nav-link" style="
 			
-			color: black;
+			color: white;
 			font-weight: bold;
 			margin: 10px;
 			" href="<?php echo Common::url_for("home");?>">Home</a>
@@ -35,7 +35,7 @@ $logged_in = Common::is_logged_in(false);
             
 			<a class="nav-link" style="
     
-			color: black;
+			color: white;
 			font-weight: bold;
 			margin: 10px;
 			" href="<?php echo Common::url_for("search");?>">Search</a>
@@ -46,7 +46,7 @@ $logged_in = Common::is_logged_in(false);
                     
 			<a class="nav-link" style="
     
-			color: black;
+			color: white;
 			font-weight: bold;
 			margin: 10px;
 			" href="<?php echo Common::url_for("create_survey");?>">Create Survey</a>
@@ -58,7 +58,7 @@ $logged_in = Common::is_logged_in(false);
             
 			<a class="nav-link" style="
 			
-			color: black;
+			color: white;
 			font-weight: bold;
 			margin: 10px;
 			" href="<?php echo Common::url_for("surveys");?>">Surveys</a>
@@ -68,7 +68,7 @@ $logged_in = Common::is_logged_in(false);
 			<li class="nav-item">
             <a class="nav-link" style="
    
-			color: black;
+			color: white;
 			font-weight: bold;
 			margin: 10px;
 			" href="<?php echo Common::url_for("TakenSurveys");?>">Surveys you've Taken</a>
@@ -79,14 +79,14 @@ $logged_in = Common::is_logged_in(false);
         <?php if(!$logged_in):?>
             <li class="nav-item">
                 <a class="nav-link" style="
-    color: black;
+    color: white;
     font-weight: bold;
 	margin: 10px;
 	" href="<?php echo Common::url_for("login");?>">Login</a>
             </li>
             <li class="nav-item" style = "margin-left: 10px;">
                 <a style="
-    color: black;
+    color: white;
     font-weight: bold;
 	margin: 10px;
 " class="nav-link" href="<?php echo Common::url_for("register");?>">Register</a>
@@ -94,7 +94,7 @@ $logged_in = Common::is_logged_in(false);
         <?php else:?>
             <li class="nav-item">
                 <a class="nav-link" style="
-    color: black;
+    color: white;
     font-weight: bold;
 	margin: 10px;
 	" href="<?php echo Common::url_for("logout");?>">Logout</a>

@@ -1,9 +1,13 @@
 input {
-    background-color: aquamarine;
+    background-color: #80aee0;
+	margin-top: 20px;
+	margin-right: 150px;
+	
 	
 }
 
 label {
+	padding-right: 5rem;
 
 }
 
@@ -44,3 +48,4 @@ select {
   border-radius: 4px;
   background-color: #f1f1f1;
 }
+
