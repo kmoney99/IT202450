@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-require_once('create_survey.php');
 class Common {
     private $db;
 
