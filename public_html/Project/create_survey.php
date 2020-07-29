@@ -48,6 +48,10 @@ if(isset($_POST["created"])) {
     $title = "";
     $description = "";
 	$visibility = "";
+	$userId = "";
+	$created = "";
+	$modified = "";
+	
 
     if(isset($_POST["title"]) && !empty($_POST["title"])){
         $title = $_POST["title"];
@@ -58,7 +62,15 @@ if(isset($_POST["created"])) {
 	if(isset($_POST["visibility"]) && !empty($_POST["visibility"])){
         $description = $_POST["visibility"];
     }
-
+	(isset($_POST["userId"]) && !empty($_POST["userId"])){
+        $description = $_POST["userId"];
+    }
+	(isset($_POST["created"]) && !empty($_POST["created"])){
+        $description = $_POST["created"];
+    }
+	(isset($_POST["modified"]) && !empty($_POST["modified"])){
+        $description = $_POST["modified"];
+    }
     try {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
@@ -67,6 +79,10 @@ if(isset($_POST["created"])) {
                 ":title" => $title,
                 ":description" => $description,
 				":visibility" => $visibility,
+				":userId" => $userId,
+                ":created" => $created,
+				":modified" => $modified
+				
 				
             ));
             $e = $stmt->errorInfo();
