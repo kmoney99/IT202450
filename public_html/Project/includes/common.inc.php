@@ -54,8 +54,21 @@ class Common {
      * @param $isWin
      * @return bool
      */
-    
-    
+    public static function is_valid_game($isWin){
+        $seconds = Common::get_seconds_since_start();
+        error_log("Seconds $seconds");
+        $min = 10;//Make sure game has been played a significant amount of time
+        if(!$isWin){
+            $min = 5;//hopefully the player survives longer than 5 seconds.
+        }
+        error_log("Is win $isWin");
+        $max = 3600;//make sure it has been started within 60 mins
+        //adjust the above constraints as necessary to reduce some basic cheats
+        //a game shouldn't be finished in under a set amount of seconds and
+        //a game shouldn't take an hour to complete
+        error_log("min $min max $max");
+        return ($seconds >= $min && $seconds <= $max);
+    }
     public static function is_logged_in($redirect = true){
         if(Common::get($_SESSION, "user", false)){
             return true;
@@ -102,7 +115,7 @@ class Common {
      * @return mixed|string
      */
     public static function url_for($lookup){
-        $path = __DIR__. " /app/public_html/Project/create_survey.php/$lookup.php";
+        $path = __DIR__. "/../$lookup.php";
         //Heroku is deployed under an app folder and __DIR pulls full path
         //so we want to split the path on our doc root, then just grab
         //the contents after it
