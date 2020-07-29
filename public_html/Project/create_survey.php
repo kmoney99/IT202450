@@ -81,9 +81,7 @@ if(isset($_POST["created"])) {
 				":visibility" => $visibility,
 				":userId" => $userId,
                 ":created" => $created,
-				":modified" => $modified
-				
-				
+				":modified" => $modified,
             ));
             $e = $stmt->errorInfo();
             if ($e[0] != "00000") {
