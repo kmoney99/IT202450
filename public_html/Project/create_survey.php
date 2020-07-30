@@ -73,10 +73,14 @@ if(isset($_POST["created"])) {
     try {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
-			$stmt = "INSERT INTO table VALUES (:id, :title, :description, :visibility, :userId, :created, :modified)";
-			$stmt->bindValue(':id', $id ,':title', $title, ':description', $description, ':visibility', $visibility, ':userId', $userId, ':created', $created, ':modified', $modified, PDO::PARAM_STR);
-            $stmt = $common->getDB()->prepare($query);
-            $result = $stmt->execute(array(
+			
+			$sql = "Insert into SURVEY (title, description, visibility, userId, created, modified) values (:title, :description, :visibility, :userId, :created, :modified)";
+			
+			$stmt-> execute ([":title" =>$title, ":description"=> $description, ":visibility"=>$visibility, ":userId" => $userId, ":created" =>$created, ":modified" => $modified]);
+            
+			$stmt = $common->getDB()->prepare($query);
+            
+			$result = $stmt->execute(array(
 			    ":id" => $id,
                 ":title" => $title,
                 ":description" => $description,
