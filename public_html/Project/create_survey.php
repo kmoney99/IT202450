@@ -76,7 +76,7 @@ if(isset($_POST["created"])) {
 			
 			$sql = "Insert into SURVEY (title, description, visibility, userId, created, modified) values (:title, :description, :visibility, :userId, :created, :modified)";
 			
-			$stmt= $execute ([":title" =>$title, ":description"=> $description, ":visibility"=>$visibility, ":userId" => $userId, ":created" =>$created, ":modified" => $modified]);
+			$stmt -> execute ([":title" =>$title, ":description"=> $description, ":visibility"=>$visibility, ":userId" => $userId, ":created" =>$created, ":modified" => $modified]);
             
 			$stmt = $common->getDB()->prepare($query);
             
