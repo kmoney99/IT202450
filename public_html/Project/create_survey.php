@@ -79,6 +79,8 @@ if(isset($_POST["created"])) {
 			$stmt -> execute ([":title" =>$title, ":description"=> $description, ":visibility"=>$visibility, ":userId" => $userId, ":created" =>$created, ":modified" => $modified]);
             
 			$stmt = $common->getDB()->prepare($query);
+			
+			$stmt = $common->getDB()->prepare ($sql);
             
 			$result = $stmt->execute(array(
 			    ":id" => $id,
@@ -88,7 +90,8 @@ if(isset($_POST["created"])) {
 				":userId" => $userId,
                 ":created" => $created,
 				":modified" => $modified,
-            ));
+            
+			));
 			
             $e = $stmt->errorInfo();
             if ($e[0] != "00000") {
