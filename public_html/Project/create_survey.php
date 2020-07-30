@@ -72,9 +72,7 @@ if(isset($_POST["created"])) {
         $modified = $_POST["modified"];
     }
     try {
-        /*$query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
-		*/
-		
+        $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
 			$sql = 'INSERT INTO `' . $Survey. '`'
             . '(`title`, `description`, `visibility`, `userId`, `created`, `modified`) VALUES '
