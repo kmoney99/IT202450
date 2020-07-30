@@ -74,10 +74,9 @@ if(isset($_POST["created"])) {
     try {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
-			$sql = 'INSERT INTO `' . $Survey. '`'
+			$sql = 'INSERT INTO `' . $Surveys. '`'
             . '(`title`, `description`, `visibility`, `userId`, `created`, `modified`) VALUES '
-            . '(:title, :description`, :visibility`, :userId, :created, :modified`)';
-			$sth = $this->_dbi->prepare($sql); 
+            . '(:title, :description`, :visibility`, :userId, :created, :modified`)'; 
             $stmt = $common->getDB()->prepare($query);
 			$sth = $this->_dbi->prepare($sql); 
             $result = $stmt->execute(array(
