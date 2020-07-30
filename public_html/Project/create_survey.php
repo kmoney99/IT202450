@@ -60,15 +60,10 @@ if(isset($_POST["created"])) {
         $description = $_POST["description"];
     }
 	if(isset($_POST["visibility"]) && !empty($_POST["visibility"])){
-        if(is_numeric($_POST["visibility"])){
-            $visibility = (int)$_POST["visibility"];
-        }
+        $visibility = $_POST["visibility"];
     }
 	if (isset($_POST["userId"]) && !empty($_POST["userId"])){
-        if(is_numeric($_POST["userId"])){
-            $userId = (int)$_POST["userId"];
-        }
-		
+        $userId = $_POST["userId"];
     }
 	if (isset($_POST["created"]) && !empty($_POST["created"])){
         $created = $_POST["created"];
@@ -77,9 +72,16 @@ if(isset($_POST["created"])) {
         $modified = $_POST["modified"];
     }
     try {
-        $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
+        /*$query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
+		*/
+		
         if(isset($query) && !empty($query)) {
+			$sql = 'INSERT INTO `' . $Survey. '`'
+            . '(`title`, `description`, `visibility`, `userId`, `created`, `modified`) VALUES '
+            . '(:title, :description`, :visibility`, :userId, :created, :modified`)';
+			$sth = $this->_dbi->prepare($sql); 
             $stmt = $common->getDB()->prepare($query);
+			$sth = $this->_dbi->prepare($sql); 
             $result = $stmt->execute(array(
                 ":title" => $title,
                 ":description" => $description,
