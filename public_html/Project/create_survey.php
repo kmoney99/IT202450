@@ -24,7 +24,7 @@ include_once(__DIR__."/partials/header.partial.php");
 
 	<label for="Status">Status:
   
-		<select id="Category" name="title">
+		<select id="Category" name="status">
   
 		<option value="Draft">Draft</option>
 		<option value="Private">Private</option>
@@ -47,7 +47,7 @@ include_once(__DIR__."/partials/header.partial.php");
 if(isset($_POST["created"])) {
     $title = "";
     $description = "";
-	$visibility = "";
+	$status = "";
 	$userId = "";
 	$created = "";
 	$modified = "";
@@ -58,8 +58,8 @@ if(isset($_POST["created"])) {
 	if(isset($_POST["description"]) && !empty($_POST["description"])){
         $description = $_POST["description"];
     }
-	if(isset($_POST["visibility"]) && !empty($_POST["visibility"])){
-        $visibility = $_POST["visibility"];
+	if(isset($_POST["status"]) && !empty($_POST["status"])){
+        $status = $_POST["status"];
     }
 	if (isset($_POST["userId"]) && !empty($_POST["userId"])){
         $userId = $_POST["userId"];
@@ -74,11 +74,11 @@ if(isset($_POST["created"])) {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
 			
-			$sql = "Insert into SURVEY (title, description, visibility, userId, created, modified) values (:title, :description, :visibility, :userId, :created, :modified)";
+			$sql = "Insert into SURVEY (title, description, status, userId, created, modified) values (:title, :description, :status, :userId, :created, :modified)";
 			
 			$stmt = $common->getDB()->prepare ($sql);
 			
-			$stmt -> execute ([":title" =>$title, ":description"=> $description, ":visibility"=>$visibility, ":userId" => $userId, ":created" =>$created, ":modified" => $modified]);
+			$stmt -> execute ([":title" =>$title, ":description"=> $description, ":status"=>$status, ":userId" => $userId, ":created" =>$created, ":modified" => $modified]);
             
 			$stmt = $common->getDB()->prepare($query);
 			
@@ -87,7 +87,7 @@ if(isset($_POST["created"])) {
 			    ":id" => $id,
                 ":title" => $title,
                 ":description" => $description,
-				":visibility" => $visibility,
+				":status" => $status,
 				":userId" => $userId,
                 ":created" => $created,
 				":modified" => $modified,
