@@ -60,16 +60,16 @@ if(isset($_POST["created"])) {
         $description = $_POST["description"];
     }
 	if(isset($_POST["visibility"]) && !empty($_POST["visibility"])){
-        $description = $_POST["visibility"];
+        $visibility = $_POST["visibility"];
     }
-	(isset($_POST["userId"]) && !empty($_POST["userId"])){
-        $description = $_POST["userId"];
+	if (isset($_POST["userId"]) && !empty($_POST["userId"])){
+        $userId = $_POST["userId"];
     }
-	(isset($_POST["created"]) && !empty($_POST["created"])){
-        $description = $_POST["created"];
+	if (isset($_POST["created"]) && !empty($_POST["created"])){
+        $created = $_POST["created"];
     }
-	(isset($_POST["modified"]) && !empty($_POST["modified"])){
-        $description = $_POST["modified"];
+	if (isset($_POST["modified"]) && !empty($_POST["modified"])){
+        $modified = $_POST["modified"];
     }
     try {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
