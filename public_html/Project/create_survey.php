@@ -60,10 +60,15 @@ if(isset($_POST["created"])) {
         $description = $_POST["description"];
     }
 	if(isset($_POST["visibility"]) && !empty($_POST["visibility"])){
-        $visibility = $_POST["visibility"];
+        if(is_numeric($_POST["visibility"])){
+            $visibility = (int)$_POST["visibility"];
+        }
     }
 	if (isset($_POST["userId"]) && !empty($_POST["userId"])){
-        $userId = $_POST["userId"];
+        if(is_numeric($_POST["userId"])){
+            $userId = (int)$_POST["userId"];
+        }
+		
     }
 	if (isset($_POST["created"]) && !empty($_POST["created"])){
         $created = $_POST["created"];
@@ -79,10 +84,11 @@ if(isset($_POST["created"])) {
                 ":title" => $title,
                 ":description" => $description,
 				":visibility" => $visibility,
-				/*":userId" => $userId,
+				":userId" => $userId,
                 ":created" => $created,
-				":modified" => $modified,*/
+				":modified" => $modified,
             ));
+			
             $e = $stmt->errorInfo();
             if ($e[0] != "00000") {
                 echo var_export($e, true);
