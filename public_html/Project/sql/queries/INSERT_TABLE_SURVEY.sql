@@ -1,1 +1,1 @@
-INSERT INTO Surveys (id, title, description, visibility, userId, created, modified ) VALUES (:id, :title, :description, :visibility int, , :userId, :created, :modified)
+INSERT INTO Survey (id, title, description, visibility, userId, created, modified ) VALUES (:id, :title, :description, :visibility, :userId, :created, :modified)
