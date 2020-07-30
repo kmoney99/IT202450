@@ -52,7 +52,6 @@ if(isset($_POST["created"])) {
 	$created = "";
 	$modified = "";
 	
-
     if(isset($_POST["title"]) && !empty($_POST["title"])){
         $title = $_POST["title"];
     }
@@ -74,9 +73,11 @@ if(isset($_POST["created"])) {
     try {
         $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
         if(isset($query) && !empty($query)) {
+			$stmt = "INSERT INTO table VALUES (:id, :title, :description, :visibility, :userId, :created, :modified)";
+			$stmt->bindValue(':id', $id ,':title', $title, ':description', $description, ':visibility', $visibility, ':userId', $userId, ':created', $created, ':modified', $modified, PDO::PARAM_STR);
             $stmt = $common->getDB()->prepare($query);
-			$sth = $this->_dbi->prepare($sql); 
             $result = $stmt->execute(array(
+			    ":id" => $id,
                 ":title" => $title,
                 ":description" => $description,
 				":visibility" => $visibility,
