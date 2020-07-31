@@ -7,10 +7,6 @@ include_once(__DIR__."/includes/common.inc.php");
 			
 			$common->getDB()->prepare("SELECT title from SURVEY where title = :title LIMIT 1");
 				
-			$stmt->execute(array(
-				":title" => $title
-			));
-			
 			$result = $stmt->execute(array(
                 ":title" => $title,
 			));
