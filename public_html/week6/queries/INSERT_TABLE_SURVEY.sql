@@ -1,1 +1,0 @@
-INSERT INTO Surveys (title, description) VALUES (:title, :description)

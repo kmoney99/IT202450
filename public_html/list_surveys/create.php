@@ -1,20 +1,35 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
-<h1> Create your survey question here! </h1>
-<form method="POST">
-<label for="Question Cat">Pick a question category:
-  <select id="Category" name="title">
-  <option value="Sports">Sports</option>
-  <option value="Countries">Countries</option>
-  <option value="Internet">World Wide Web</option>
-</label>
-  
-  </select>
 
- <label for="num">Enter your Question:
-	<input type="text" id="d" name="description" />
+<form method="POST">
+
+	<label for="num">Title:
+		<input type="text" id="d" name="title" />
 	</label>
-	<input type="submit" name="created" value="Create Question"/>
+	
+	
+	<label for="num">Description:
+		<input type="text" id="d" name="description" />
+	</label>
+	
+
+	<label for="Status">Status:
+  
+		<select id="Category" name="title">
+  
+		<option value="Draft">Draft</option>
+		<option value="Private">Private</option>
+		<option value="Public">Public</option>
+	
+	</label>
+	
+	
+	<input type="submit" name="created" value="Save"/>
+  
+		</select>
+
+
+	
 	
 </form>
 
@@ -23,12 +38,16 @@
 if(isset($_POST["created"])) {
     $title = "";
     $description = "";
+	$visibility = "";
 
     if(isset($_POST["title"]) && !empty($_POST["title"])){
         $title = $_POST["title"];
     }
 	if(isset($_POST["description"]) && !empty($_POST["description"])){
         $description = $_POST["description"];
+    }
+	if(isset($_POST["visibility"]) && !empty($_POST["visibility"])){
+        $description = $_POST["visibility"];
     }
 
     try {
@@ -38,16 +57,18 @@ if(isset($_POST["created"])) {
             $stmt = getDB()->prepare($query);
             $result = $stmt->execute(array(
                 ":title" => $title,
-                ":description" => $description
+                ":description" => $description,
+				":visibility" => $visibility,
+				
             ));
             $e = $stmt->errorInfo();
             if ($e[0] != "00000") {
                 echo var_export($e, true);
             } else {
                 if ($result) {
-                    echo "Successfully inserted new Survey: " . $title;
+                    echo "Survey was sucessfully saved: " . $title;
                 } else {
-                    echo "Error inserting record";
+                    echo "Error inserting survey";
                 }
             }
         }

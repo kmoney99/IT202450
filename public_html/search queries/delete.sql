@@ -1,0 +1,1 @@
+DELETE FROM Questions WHERE ID = :id
