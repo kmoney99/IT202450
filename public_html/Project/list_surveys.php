@@ -4,7 +4,6 @@ ini_set('display_errors', '1');
 
 include_once(__DIR__."/partials/header.partial.php");
 include_once(__DIR__."/includes/common.inc.php");
-require("common.inc.php");
 			
 			$common->getDB()->prepare("SELECT title from SURVEY where title = :title LIMIT 1");
 				
