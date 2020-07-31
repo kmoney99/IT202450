@@ -155,24 +155,16 @@ class Common {
         return $default;
     }
 
-    /*** Returns a shared instance of our PDO connection
-     * @return PDO
-     */
-    public function getDB() {
-        if (!isset($this->db)) {
-            //Initialize all of these at once just to make the IDE happy
-            $dbdatabase = $dbuser = $dbpass = $dbhost = NULL;
-            require_once(__DIR__ . "/config.php");
-            if (isset($dbhost) && isset($dbdatabase) && isset($dbpass) && isset($dbuser)) {
-                $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-                $this->db = new PDO($connection_string, $dbuser, $dbpass);
-            } else {
-                //https://www.w3schools.com/php/func_error_log.asp
-                error_log("Missing db config details");
-            }
-        }
-        return $this->db;
+}
+	function getDB(){
+    global $db;
+    if(!isset($db)) {
+        require_once("config.php");
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db = new PDO($connection_string, $dbuser, $dbpass);
     }
+    return $db;
+}
 
     /*** Used to store any type of message to the session to later be displayed with getFlashMessages()
      * @param $message String of the message

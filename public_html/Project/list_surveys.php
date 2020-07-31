@@ -9,7 +9,7 @@ $query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_SURVEY.sql");
 if(isset($query) && !empty($query));
 	
 	try {
-		$stmt = getDB() -> prepare($query);
+		$stmt = $common->getDB()->prepare($query);
 		$stmt -> execute();
 		$results = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 		
