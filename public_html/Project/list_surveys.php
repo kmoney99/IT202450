@@ -7,13 +7,15 @@ include_once(__DIR__."/partials/header.partial.php");
 
 include_once(__DIR__."/includes/common.inc.php");
 			
-			$stmt = $common->getDB()->prepare ();
 			
-			$common->getDB()->prepare("SELECT title from SURVEY where title = :title LIMIT 1");
+			
+			$common->getDB()->prepare("SELECT title from SURVEY");
 				
 			$result = $stmt->execute(array(
                 ":title" => $title,
 			));
+			
+			$stmt = $common->getDB()->prepare($result);
 				
 			$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
