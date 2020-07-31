@@ -9,6 +9,7 @@ $query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_SURVEY.sql");
 if(isset($query) && !empty($query));
 	
 	try {
+		$common->getDB()->prepare("select title from Survey");
 		$stmt = $common->getDB()->prepare($query);
 		$stmt -> execute();
 		$results = $stmt -> fetchAll(PDO::FETCH_ASSOC);
