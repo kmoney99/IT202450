@@ -2,39 +2,33 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-include_once(__DIR__."/partials/header.partial.php");
+require("common.inc.php");
 
-			
-			
-			/*
-			$common->getDB()->prepare("SELECT title from SURVEY");
-			
-			$stmt = $common->getDB()->prepare($result);
-			
-			$result = $stmt->execute(array(
-                ":title" => $title,
-			));
-		*/
+$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_SURVEY.sql");
+
+if(isset($query) && !empty($query));
 	
-        $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
-        if(isset($query) && !empty($query)) {
-			
-			$common->getDB()->prepare("SELECT title from SURVEY");
-			
-			$stmt = $common->getDB()->prepare(':title', $title);
-            
-			$stmt = $common->getDB()->prepare($query);
-			
-			$e = $stmt->errorInfo();
-				if($e[0] != "00000"){
-					echo var_export($e, true);
-				}
-				else{
-					$result = $stmt->fetch(PDO::FETCH_ASSOC);
-					if ($result){
-						echo "Survey" . $title; 
-					}
-				}
+	try {
+		$stmt = getDB() -> prepare($query);
+		$stmt -> execute();
+		$results = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+		
+	}
+	
+	catch (Exception $e) {
+		echo $e->getMessage();
+	}
+	
+	
+	
+	if(isset($results)) {
+		foreach($results as $row) {
+			echo get($row, "title");
 			
 		}
+		
+	}
+	else {
+		echo "No Surveys at this time.";
+	}
 ?>
