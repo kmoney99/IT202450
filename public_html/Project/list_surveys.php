@@ -21,7 +21,7 @@ include_once(__DIR__."/partials/header.partial.php");
 			
 			$common->getDB()->prepare("SELECT title from SURVEY");
 			
-			$stmt = $common->getDB()->prepare ($common);
+			$stmt = $common->getDB()->prepare(':title', $title);
             
 			$stmt = $common->getDB()->prepare($query);
 			
