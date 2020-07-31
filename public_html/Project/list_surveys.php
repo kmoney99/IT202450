@@ -4,19 +4,34 @@ ini_set('display_errors', '1');
 
 include_once(__DIR__."/partials/header.partial.php");
 
-
-include_once(__DIR__."/includes/common.inc.php");
 			
 			
-			
+			/*
 			$common->getDB()->prepare("SELECT title from SURVEY");
-				
+			
+			$stmt = $common->getDB()->prepare($result);
+			
 			$result = $stmt->execute(array(
                 ":title" => $title,
 			));
+		*/
+	
+        $query = file_get_contents(__DIR__ . "/sql/queries/INSERT_TABLE_SURVEY.sql");
+        if(isset($query) && !empty($query)) {
 			
-			$stmt = $common->getDB()->prepare($result);
-				
+			$sql = "SELECT title from SURVEY (title) values (:title)";
+			
+			$stmt = $common->getDB()->prepare ($sql);
+			
+			$stmt -> execute ([":title" =>$title]);
+            
+			$stmt = $common->getDB()->prepare($query);
+			
+            
+			$result = $stmt->execute(array(
+			    ":title" => $title,
+            
+			));
 			$e = $stmt->errorInfo();
 				if($e[0] != "00000"){
 					echo var_export($e, true);
@@ -27,7 +42,6 @@ include_once(__DIR__."/includes/common.inc.php");
 						echo "Survey" . $title; 
 					}
 				}
-		
-		
-	
+			
+		}
 ?>
