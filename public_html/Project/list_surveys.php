@@ -2,8 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include_once(__DIR__."/partials/header.partial.php");
- file_get_contents(__DIR__ ."/includes/common.inc.php");
-require("common.inc.php");
+require("common.inc.php"(__DIR__."/includes/common.inc.php"));
 
 $query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_SURVEY.sql");
 
@@ -33,3 +32,5 @@ if(isset($query) && !empty($query));
 		echo "No Surveys at this time.";
 	}
 ?>
+
+<link rel="stylesheet" type="text/css" href="style.css">
