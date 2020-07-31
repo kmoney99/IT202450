@@ -1,37 +1,35 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-include_once(__DIR__."/partials/header.partial.php");
-require("common.inc.php"(__DIR__."/includes/common.inc.php"));
-
-$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_SURVEY.sql");
-
-if(isset($query) && !empty($query));
-	
-	try {
-		$common->getDB()->prepare("select title from Survey");
-		$stmt = $common->getDB()->prepare($query);
-		$stmt -> execute();
-		$results = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-		
-	}
-	
-	catch (Exception $e) {
-		echo $e->getMessage();
-	}
-	
-	
-	
-	if(isset($results)) {
-		foreach($results as $row) {
-			echo get($row, "title");
-			
-		}
-		
-	}
-	else {
-		echo "No Surveys at this time.";
-	}
+require("common.inc.php");
+$query = file_get_contents(__DIR__ . "/queries/SELECT_ALL_TABLE_SURVEY.sql");
+if(isset($query) && !empty($query)){
+    try {
+        $stmt = getDB()->prepare($query);
+        //we don't need to pass any arguments since we're not filtering the results
+        $stmt->execute();
+        //Note the fetchAll(), we need to use it over fetch() if we expect >1 record
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch (Exception $e){
+        echo $e->getMessage();
+    }
+}
 ?>
-
-<link rel="stylesheet" type="text/css" href="style.css">
+<!--This part will introduce us to PHP templating,
+note the structure and the ":" -->
+<!-- note how we must close each check we're doing as well-->
+<?php if(isset($results)):?>
+    <p>This shows when we have results</p>
+    <ul>
+        <!-- Here we'll loop over all our results and reuse a specific template for each iteration,
+        we're also using our helper function to safely return a value based on our key/column name.-->
+        <?php foreach($results as $row):?>
+            <li>
+                <?php echo get($row, "title")?>
+                <?php echo get($row, "description");?>
+                <a href="delete.php?surveyID=<?php echo get($row, "id");?>">Delete</a>
+            </li>
+        <?php endforeach;?>
+    </ul>
+<?php else:?>
+    <p>This shows when we don't have results</p>
+<?php endif;?>
