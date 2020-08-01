@@ -1,5 +1,7 @@
 <?php
 include_once(__DIR__."/partials/header.partial.php");
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 ?>
 
 <form method="POST">
@@ -8,7 +10,9 @@ include_once(__DIR__."/partials/header.partial.php");
   <input type="text" id="question" name="question" value=""><br>
   <label for="answer">Answer:</label><br>
   <input type="text" id="answer" name="answer" value=""><br><br>
-  <input type="submit" name="created" value="Add Question">
+ 
+ <input type="submit" name="created" value="Save"/>
+
 </form>
 
 

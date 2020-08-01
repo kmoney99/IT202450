@@ -86,18 +86,7 @@ class DBH{
     }
     public static function save_questionnaire($questionnaire){
         try {
-            //Steps
-            //create questionnaire
-            /*
-             * $questionnaire = [
-                    "name"=>$questionnaire_name,
-                    "description"=>$questionnaire_desc,
-                    "attempts_per_day"=>$attempts_per_day,
-                    "max_attempts"=>$max_attempts,
-                    "use_max"=>$use_max,
-                    "questions"=>$questions
-                    ];
-             */
+            
             $query = file_get_contents(__DIR__ . "/../sql/queries/create_questionnaire.sql");
             $stmt = DBH::getDB()->prepare($query);
             $stmt->execute([
@@ -237,7 +226,7 @@ class DBH{
                 $result = $stmt->fetchAll(PDO::FETCH_GROUP);
                 error_log(var_export($result, true));
                 //TODO need to do some mapping
-                /*$questions = [];
+                $questions = [];
                 foreach($result as $row){
                     $q = Common::get($row, "question_id", -1);
                     if($q > -1){
@@ -252,7 +241,7 @@ class DBH{
                             $questions
                         }
                     }
-                }*/
+                }
                 return DBH::response($result,200, "success");
             }
             else{
