@@ -9,7 +9,7 @@
      * @return int
      * @throws Exception
      */
-    public static function get_seconds_since_dates($date1, $date2 = NULL){
+   /* public static function get_seconds_since_dates($date1, $date2 = NULL){
         if(!isset($date2)){
             $date2 = new DateTime();
         }
@@ -22,7 +22,7 @@
     /*** Used as part of game validation to prevent cheating
      * @return int
      */
-    public static function get_seconds_since_start(){
+  /*  public static function get_seconds_since_start(){
         //TODO update this to use get_seconds_since_dates()
         $started = Common::get($_SESSION, "started", false);
         if($started){
@@ -48,12 +48,12 @@
         }
         return -1;
     }
-
+/*
     /*** Basis of anti cheating check, still WIP
      * @param $isWin
      * @return bool
      */
-    public static function is_valid_game($isWin){
+ /*   public static function is_valid_game($isWin){
         $seconds = Common::get_seconds_since_start();
         error_log("Seconds $seconds");
         $min = 10;//Make sure game has been played a significant amount of time
@@ -84,7 +84,7 @@
     /*** System user ID used mostly as FK for various transactions.
      *    Cached in Session to reduce DB calls to fetch it. Populates on login.
      * @return mixed|string
-     */
+     
     public static function get_system_id(){
         return Common::get($_SESSION, "system_id", -1);
     }
@@ -112,7 +112,7 @@
     /*** Quick URL tool to get relative urls by passing desired php file name.
      * @param $lookup
      * @return mixed|string
-     */
+     
     public static function url_for($lookup){
         $path = __DIR__. "/../$lookup.php";
         //Heroku is deployed under an app folder and __DIR pulls full path
@@ -129,7 +129,7 @@
     /*** Pass a single role to check if the logged in user has the role applied
      * @param $role
      * @return bool
-     */
+     
     public static function has_role($role){
         $user = Common::get($_SESSION, "user", false);
         if($user){
