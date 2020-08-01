@@ -2,7 +2,7 @@
 
 include_once(__DIR__."/partials/header.partial.php");
 require("com.inc.php");
-$query = file_get_contents(__DIR__ . "/queries/SELECT_ALL_TABLE_SURVEY.sql");
+$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
         $stmt = getDB()->prepare($query);

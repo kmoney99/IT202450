@@ -63,7 +63,7 @@ $logged_in = Common::is_logged_in(false);
 			color: white;
 			font-weight: bold;
 			margin: 10px;
-			" href="<?php echo Common::url_for("index_to_list_surveys");?>">List Surveys</a>
+			" href="<?php echo Common::url_for("list_surveys");?>">List Surveys</a>
             
 			</li>
             
