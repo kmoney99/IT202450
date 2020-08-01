@@ -1,8 +1,20 @@
+
+
+<form method="POST">
+
+  <label for="question">Question:</label><br>
+  <input type="text" id="question" name="question" value=""><br>
+  <label for="answer">Answer:</label><br>
+  <input type="text" id="answer" name="answer" value=""><br><br>
+  <input type="submit" name="created" value="Add Question">
+</form>
+
+
 <?php
 
 include_once(__DIR__."/partials/header.partial.php");
 require("common.inc.php");
-$query = file_get_contents(__DIR__ . "/queries/SELECT_ALL_TABLE_SURVEY.sql");
+$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
         $stmt = getDB()->prepare($query);
@@ -15,33 +27,23 @@ if(isset($query) && !empty($query)){
         echo $e->getMessage();
     }
 }
-?>
-
-<?php if(isset($results)):?>
-    <h3>Add Question</h3>
-    <ul>
-        
-        <?php foreach($results as $row):?>
-            <li>
-                <?php echo get($row, "id")?>
+	if(isset($results)) {
+		
+    echo "Add Question";
+	
+		foreach($results as $row) {
+            
+            echo get($row, "id");
 				
-            </li>
-        <?php endforeach;?>
-    </ul>
-<?php else:?>
-   <?php echo "Failed to open Survey"
-<?php endif;?>
-
-<form>
-  <label for="question">Question:</label><br>
-  <input type="text" id="question" name="question" value=""><br>
-  <label for="answer">Answer:</label><br>
-  <input type="text" id="answer" name="answer" value=""><br><br>
-  <input type="submit" name="created" value="Add Question">
-</form>
-
-<?php 
-
+        }
+		
+	}
+	else {
+		echo "Failed to open Survey";
+		
+	}
+?>
+<?php
 if(isset($_POST["created"])) {
     $id = "";
     $question = "";
@@ -81,4 +83,4 @@ if(isset($_POST["created"])) {
         echo $e->getMessage();
     }
 }
-?>	
+?>
