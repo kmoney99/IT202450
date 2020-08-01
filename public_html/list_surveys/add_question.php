@@ -6,15 +6,16 @@ ini_set('display_errors', '1');
 
 
 <form method="POST">
-
+<div>
   <label for="question">Question:</label><br>
   <input type="text" id="question" name="question" value=""><br>
+ </div>
    <div class="list-group-item">
                     <div class="form-group">
                         <label for="answer">Answer</label>
                         <input class="form-control" type="text" id="answer" name="question" required/>
                     </div>
-					<button class="btn btn-secondary" onclick="event.preventDefault(); cloneThis(this);">Add Answer</button>
+					
  <input type="submit" name="created" value="Save"/>
 
 </form>
@@ -66,7 +67,7 @@ if(isset($_POST["created"])) {
     }
     try {
         require("common.inc.php");
-        $query = file_get_contents(__DIR__ . "/sql/queries/create_question.sql");
+        $query = file_get_contents(__DIR__ . "/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
             $stmt = getDB()->prepare($query);
             $result = $stmt->execute(array(
@@ -94,12 +95,4 @@ if(isset($_POST["created"])) {
     }
 }
 ?>
-<script>
-function cloneThis(ele){
-        let $lg = $(ele).siblings(".list-group");
-        let $li = $lg.find(".list-group-item:first");
-        let $clone = $li.clone();
-        $lg.append($clone);
- 
-    }
-	</script>
+
