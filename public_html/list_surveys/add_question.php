@@ -40,7 +40,7 @@ ini_set('display_errors', '1');
 
 
 <?php
-//require("kush.inc.php");
+require("kush.inc.php");
 $query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
@@ -84,7 +84,7 @@ if(isset($_POST["created"])) {
         $question = $_POST["question"];
     }
     try {
-        require("common.inc.php");
+        require("kush.inc.php");
         $query = file_get_contents(__DIR__ . "/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
             $stmt = getDB()->prepare($query);
