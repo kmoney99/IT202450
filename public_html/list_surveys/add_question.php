@@ -40,7 +40,7 @@ ini_set('display_errors', '1');
 
 
 <?php
-require("common.inc.php");
+require("kush.inc.php");
 $query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
