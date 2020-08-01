@@ -1,10 +1,11 @@
 <?php
+include_once(__DIR__."/partials/header.partial.php");
 $search = "";
 if(isset($_POST["search"])){
     $search = $_POST["search"];
 }
 ?>
-<link rel="stylesheet" type="text/css" href="sty.css">
+
 <h3> Search for survey question </h3>
 <form method="POST">
 <label for="Sort the Data">Sort the Surveys:
