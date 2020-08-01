@@ -16,7 +16,7 @@ function getDB(){
     return $db;
 }
 */
-<?php
+
 session_start();
 class Common {
     private $db;

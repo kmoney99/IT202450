@@ -12,6 +12,7 @@ ini_set('display_errors', '1');
             <label for="answer">Question:</label>
                 <input class="form-control" type="text" id="question" name="question" required/>
         </div>
+ </div>
    <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 1:</label>
