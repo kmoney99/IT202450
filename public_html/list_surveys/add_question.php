@@ -9,9 +9,12 @@ ini_set('display_errors', '1');
 
   <label for="question">Question:</label><br>
   <input type="text" id="question" name="question" value=""><br>
-  <label for="answer">Answer:</label><br>
-  <input type="text" id="answer" name="answer" value=""><br><br>
- 
+   <div class="list-group-item">
+                    <div class="form-group">
+                        <label for="answer">Answer</label>
+                        <input class="form-control" type="text" id="answer" name="question" required/>
+                    </div>
+					<button class="btn btn-secondary" onclick="event.preventDefault(); cloneThis(this);">Add Answer</button>
  <input type="submit" name="created" value="Save"/>
 
 </form>
@@ -91,3 +94,12 @@ if(isset($_POST["created"])) {
     }
 }
 ?>
+<script>
+function cloneThis(ele){
+        let $lg = $(ele).siblings(".list-group");
+        let $li = $lg.find(".list-group-item:first");
+        let $clone = $li.clone();
+        $lg.append($clone);
+ 
+    }
+	</script>
