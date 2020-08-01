@@ -1,6 +1,6 @@
 <?php
-session_start();
-class Common {
+//session_start();
+//class Common {
     private $db;
 
     /*** Helper to get seconds between two dates. May only be accurate if $date1 is older than $date2.
