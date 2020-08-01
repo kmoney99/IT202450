@@ -6,17 +6,34 @@ ini_set('display_errors', '1');
 
 
 <form method="POST">
-<div>
-  <label for="question">Question:</label><br>
-  <input type="text" id="question" name="question" value=""><br>
- </div>
+
+ <div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Question:</label>
+                <input class="form-control" type="text" id="question" name="question" required/>
+        </div>
    <div class="list-group-item">
-                    <div class="form-group">
-                        <label for="answer">Answer</label>
-                        <input class="form-control" type="text" id="answer" name="question" required/>
-                    </div>
+        <div class="form-group">
+            <label for="answer">Answer Choice 1:</label>
+                <input class="form-control" type="text" id="answer" name="question" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 2:</label>
+                <input class="form-control" type="text" id="answer" name="question" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 3:</label>
+                <input class="form-control" type="text" id="answer" name="question" />
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 4:</label>
+                <input class="form-control" type="text" id="answer" name="question" />
+        </div>
 					
- <input type="submit" name="created" value="Save"/>
+	<input type="submit" name="created" value="Save"/>
 
 </form>
 

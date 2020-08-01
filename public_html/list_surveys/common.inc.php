@@ -1,4 +1,5 @@
 <?php
+/*
 function get($arr, $key){
     if(isset($arr[$key])){
         return $arr[$key];
@@ -14,3 +15,5 @@ function getDB(){
     }
     return $db;
 }
+*/
+?>
