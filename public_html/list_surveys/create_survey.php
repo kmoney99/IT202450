@@ -5,7 +5,7 @@ include_once(__DIR__."/partials/header.partial.php");
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="style.css">
+
 
 
 <form method="POST">
