@@ -1,7 +1,7 @@
 <?php
 
 include_once(__DIR__."/partials/header.partial.php");
-require("common.inc.php");
+require("com.inc.php");
 $query = file_get_contents(__DIR__ . "/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
