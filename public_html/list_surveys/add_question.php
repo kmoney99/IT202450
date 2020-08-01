@@ -49,6 +49,8 @@ if(isset($query) && !empty($query)){
 	}
 ?>
 <?php
+include_once(__DIR__."/partials/header.partial.php");
+error_reporting(E_ALL);
 if(isset($_POST["created"])) {
     $id = "";
     $question = "";
