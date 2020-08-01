@@ -1,4 +1,6 @@
-
+<?php
+include_once(__DIR__."/partials/header.partial.php");
+?>
 
 <form method="POST">
 
@@ -12,7 +14,6 @@
 
 <?php
 
-include_once(__DIR__."/partials/header.partial.php");
 require("common.inc.php");
 $query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
@@ -29,7 +30,7 @@ if(isset($query) && !empty($query)){
 }
 	if(isset($results)) {
 		
-    echo "Add Question";
+    echo "Question";
 	
 		foreach($results as $row) {
             
@@ -69,7 +70,7 @@ if(isset($_POST["created"])) {
                 echo var_export($e, true);
             } else {
                 if ($result) {
-                    echo "Question was sucessfully added: " . $id;
+                    echo "Question was sucessfully added:", " " .$id;
                 } else {
                     echo "Error inserting question";
                 }
