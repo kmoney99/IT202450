@@ -20,7 +20,7 @@ if(isset($query) && !empty($query)){
 <?php if(isset($results)):?>
     <p>Surveys By Title</p>
     <ul>
-        
+        <div>
         <?php foreach($results as $row):?>
             <li>
                 <?php echo get($row, "title")?>
@@ -30,7 +30,7 @@ if(isset($query) && !empty($query)){
                 <a href="delete.php?surveyID=<?php echo get($row, "id");?>">Delete Survey</a>
 				
 				<a href="view_survey.php?surveyID=<?php echo get($row, "id");?>">View Survey</a>
-				
+		</div>
             </li>
         <?php endforeach;?>
     </ul>
