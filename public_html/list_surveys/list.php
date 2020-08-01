@@ -24,8 +24,13 @@ if(isset($query) && !empty($query)){
         <?php foreach($results as $row):?>
             <li>
                 <?php echo get($row, "title")?>
-          
-                <a href="delete.php?surveyID=<?php echo get($row, "id");?>">Delete</a>
+				
+				<a href="add_question.php?surveyID=<?php echo get($row, "id");?>">Add Question</a>
+				
+                <a href="delete.php?surveyID=<?php echo get($row, "id");?>">Delete Survey</a>
+				
+				<a href="view_survey.php?surveyID=<?php echo get($row, "id");?>">View Survey</a>
+				
             </li>
         <?php endforeach;?>
     </ul>
