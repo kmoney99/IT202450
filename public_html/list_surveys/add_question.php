@@ -68,6 +68,8 @@ if(isset($query) && !empty($query)){
 
 </form>
 <?php
+include_once(__DIR__."/partials/header.partial.php");
+error_reporting(E_ALL);
 
 if(isset($_POST["created"])) {
     $id = "";
@@ -100,7 +102,7 @@ if(isset($_POST["created"])) {
 		$query = file_get_contents(__DIR__ ."/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
 			
-			$sql="Insert into Questions(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
+			$sql="Insert into Question(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
 			
 			$stmt=$common->getDB()->prepare($sql);
 			
