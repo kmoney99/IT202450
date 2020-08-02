@@ -40,32 +40,9 @@ if(isset($query) && !empty($query)){
  <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Question:</label>
-                <input class="form-control" type="text" id="que" name="question" required/>
-        </div>
- </div>
-   <div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 1:</label>
-                <input class="form-control" type="text" id="ans" name="answer" required/>
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 2:</label>
-                <input class="form-control" type="text" id="ans" name="answer" required/>
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="ans" name="answer" />
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 4:</label>
-                <input class="form-control" type="text" id="ans" name="answer" />
+                <input class="form-control" type="text" id="0" name="question" required/>
         </div>
 		
-	
-					
 	<input type="submit" name="created" value="Save"/>
 
 </form>
@@ -109,7 +86,29 @@ if(isset($_POST["created"])) {
 
 
 ?>
-
+</div>
+   <div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 1:</label>
+                <input class="form-control" type="text" id="1" name="answer" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 2:</label>
+                <input class="form-control" type="text" id="2" name="answer" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 3:</label>
+                <input class="form-control" type="text" id="3" name="answer" />
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 4:</label>
+                <input class="form-control" type="text" id="answer" name="answer" />
+        </div>
+		<input type="submit" name="created" value="Save"/>
+		
 <?php
 
 if(isset($_POST["created"])) {
@@ -135,7 +134,7 @@ if(isset($_POST["created"])) {
                 echo var_export($e, true);
             } else {
                 if ($result) {
-                    echo "Question was sucessfully added";
+                    echo "& Answer was stored!";
                 } else {
                     echo "Error inserting question";
                 }
