@@ -30,16 +30,7 @@ if(isset($query) && !empty($query)){
 		echo "Failed to open Survey";
 		
 	}
-<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="answer" name="question" />
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 4:</label>
-                <input class="form-control" type="text" id="answer" name="question" />
-        </div>
+
 */
 ?>
 
@@ -49,18 +40,28 @@ if(isset($query) && !empty($query)){
  <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Question:</label>
-                <input class="form-control" type="text" id="question" name="question" required/>
+                <input class="form-control" type="text" id="que" name="question" required/>
         </div>
  </div>
    <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 1:</label>
-                <input class="form-control" type="text" id="answer" name="answer" required/>
+                <input class="form-control" type="text" id="ans" name="answer" required/>
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 2:</label>
-                <input class="form-control" type="text" id="answer" name="answer" required/>
+                <input class="form-control" type="text" id="ans" name="answer" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 3:</label>
+                <input class="form-control" type="text" id="ans" name="answer" />
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 4:</label>
+                <input class="form-control" type="text" id="ans" name="answer" />
         </div>
 		
 	
@@ -70,15 +71,12 @@ if(isset($query) && !empty($query)){
 </form>
 <?php
 include_once(__DIR__."/partials/header.partial.php");
-error_reporting(E_ALL);
+
 
 if(isset($_POST["created"])) {
     $id = "";
     $question = "";
-	//$user_id = "";
-	//$questionnaire_id = "";
-	//$created = "";
-	//$modified = "";
+	
 	
     if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id = $_POST["id"];
@@ -86,18 +84,6 @@ if(isset($_POST["created"])) {
 	if(isset($_POST["question"]) && !empty($_POST["question"])){
         $question = $_POST["question"];
     }
-	//if (isset($_POST["user_id"]) && !empty($_POST["user_id"])){
-		//	$user_id = $_POST["user_id"];
-//    }
-	//if(isset($_POST["questionnaire_id"]) && !empty($_POST["questionnaire_id"])){
-    //    $questionnaire_id = $_POST["questionnaire_id"];
-    //}
-	//if (isset($_POST["created"]) && !empty($_POST["created"])){
-    //    $created = $_POST["created"];
-    //}
-	//if (isset($_POST["modified"]) && !empty($_POST["modified"])){
-     //   $modified = $_POST["modified"];
-    //}
 	
 	try {
 			$sql="Insert into Question(id,question) values (:id,:question)";
@@ -122,6 +108,48 @@ if(isset($_POST["created"])) {
 }
 
 
-
 ?>
 
+<?php
+
+if(isset($_POST["created"])) {
+    $id = "";
+    $answer = "";
+	$question_id = "";
+	
+	
+    if(isset($_POST["id"]) && !empty($_POST["id"])){
+        $id = $_POST["id"];
+    }
+	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
+        $question = $_POST["answer"];
+    }
+	if(isset($_POST["question_id"]) && !empty($_POST["question_id"])){
+        $question = $_POST["question_id"];
+    }
+	
+	
+	
+	try {
+			$sql="Insert into Answers(id,answer,question_id) values (:id,:answer,:question_id)";
+			$stmt=$common->getDB()->prepare($sql);
+			$stmt->execute([":id"=>$id, ":answer"=>$answer, ":question_id"=>$question_id]);
+            $result=$stmt->execute(array(":id"=>$id, ":answer"=>$answer, ":question"=>$question));
+			$e=$stmt->errorInfo();
+			
+            if ($e[0] != "00000") {
+                echo var_export($e, true);
+            } else {
+                if ($result) {
+                    echo "Question was sucessfully added";
+                } else {
+                    echo "Error inserting question";
+                }
+            }
+    }
+    catch (Exception $e){
+        echo $e->getMessage();
+    }
+}
+
+?>

@@ -1,1 +1,1 @@
-INSERT INTO Answers(answer, is_open_ended, user_id, question_id) VALUES
+INSERT INTO Answers(id, answer, question_id) VALUES (:id, :answer, :question_id)
