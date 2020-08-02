@@ -30,7 +30,16 @@ if(isset($query) && !empty($query)){
 		echo "Failed to open Survey";
 		
 	}
-
+<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 3:</label>
+                <input class="form-control" type="text" id="answer" name="question" />
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 4:</label>
+                <input class="form-control" type="text" id="answer" name="question" />
+        </div>
 */
 ?>
 
@@ -46,23 +55,15 @@ if(isset($query) && !empty($query)){
    <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 1:</label>
-                <input class="form-control" type="text" id="answer" name="question" required/>
+                <input class="form-control" type="text" id="answer" name="answer" required/>
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 2:</label>
-                <input class="form-control" type="text" id="answer" name="question" required/>
+                <input class="form-control" type="text" id="answer" name="answer" required/>
         </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="answer" name="question" />
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 4:</label>
-                <input class="form-control" type="text" id="answer" name="question" />
-        </div>
+		
+	
 					
 	<input type="submit" name="created" value="Save"/>
 
