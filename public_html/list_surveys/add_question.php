@@ -56,7 +56,7 @@ if(isset($query) && !empty($query)){
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="3" name="answer" />
+                <input class="form-control" type="text" id="answer" name="answer" />
         </div>
 	<div class="list-group-item">
         <div class="form-group">
