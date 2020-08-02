@@ -2,7 +2,8 @@
 include_once(__DIR__."/partials/header.partial.php");
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-/*$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
+
+$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
         $stmt = getDB()->prepare($query);
@@ -31,7 +32,7 @@ if(isset($query) && !empty($query)){
 		
 	}
 
-*/
+
 ?>
 
 
@@ -42,6 +43,28 @@ if(isset($query) && !empty($query)){
             <label for="answer">Question:</label>
                 <input class="form-control" type="text" id="0" name="question" required/>
         </div>
+		</div>
+   <div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 1:</label>
+                <input class="form-control" type="text" id="1" name="answer" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 2:</label>
+                <input class="form-control" type="text" id="2" name="answer" required/>
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 3:</label>
+                <input class="form-control" type="text" id="3" name="answer" />
+        </div>
+	<div class="list-group-item">
+        <div class="form-group">
+            <label for="answer">Answer Choice 4:</label>
+                <input class="form-control" type="text" id="answer" name="answer" />
+        </div>
+		
 		
 	<input type="submit" name="created" value="Save"/>
 
@@ -86,28 +109,6 @@ if(isset($_POST["created"])) {
 
 
 ?>
-</div>
-   <div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 1:</label>
-                <input class="form-control" type="text" id="1" name="answer" required/>
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 2:</label>
-                <input class="form-control" type="text" id="2" name="answer" required/>
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="3" name="answer" />
-        </div>
-	<div class="list-group-item">
-        <div class="form-group">
-            <label for="answer">Answer Choice 4:</label>
-                <input class="form-control" type="text" id="answer" name="answer" />
-        </div>
-		<input type="submit" name="created" value="Save"/>
 		
 <?php
 
@@ -120,7 +121,7 @@ if(isset($_POST["created"])) {
         $id = $_POST["id"];
     }
 	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
-        $question = $_POST["answer"];
+        $answer = $_POST["answer"];
     }
 	
 	try {
