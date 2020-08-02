@@ -113,23 +113,26 @@ if(isset($_POST["created"])) {
 
 if(isset($_POST["created"])) {
     $id = "";
-    $answer = "";
+    $answer1 = "";
+	$answer2 = "";
+	$answer3 = "";
+	$answer4 = "";
 	
 	
     if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id = $_POST["id"];
     }
-	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
-        $answer = $_POST["answer"];
+	if(isset($_POST["answer1"]) && !empty($_POST["answer1"])){
+        $answer = $_POST["answer1"];
     }
-	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
-        $answer = $_POST["answer"];
+	if(isset($_POST["answer2"]) && !empty($_POST["answer2"])){
+        $answer = $_POST["answer2"];
     }
-	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
-        $answer = $_POST["answer"];
+	if(isset($_POST["answer3"]) && !empty($_POST["answer3"])){
+        $answer = $_POST["answer3"];
     }
-	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
-        $answer = $_POST["answer"];
+	if(isset($_POST["answer4"]) && !empty($_POST["answer4"])){
+        $answer = $_POST["answer$"];
     }
 	
 	try {
