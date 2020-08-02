@@ -99,9 +99,6 @@ if(isset($_POST["created"])) {
     }
 	
 	try {
-		$query = file_get_contents(__DIR__ ."/queries/017_CREATE_TABLE_QUESTIONS.sql");
-        if(isset($query) && !empty($query)) {
-			
 			$sql="Insert into Question(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
 			$stmt=$common->getDB()->prepare($sql);
 			$stmt->execute([":id"=>$id,":question"=>$question,":user_id"=>$user_id,":questionnaire_id"=>$questionnaire_id,":created"=>$created,":modified"=>$modified]);
@@ -118,10 +115,6 @@ if(isset($_POST["created"])) {
                     echo "Error inserting question";
                 }
             }
-        }
-        else{
-            echo "Failed to find CREATE_TABLE_QUESTIONS.sql file";
-        }
     }
     catch (Exception $e){
         echo $e->getMessage();
