@@ -46,22 +46,22 @@ if(isset($query) && !empty($query)){
    <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 1:</label>
-                <input class="form-control" type="text" id="answer 1" name="answer1" required/>
+                <input class="form-control" type="text" id="answer" name="answer1" required/>
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 2:</label>
-                <input class="form-control" type="text" id="answer 2" name="answer2" required/>
+                <input class="form-control" type="text" id="answer" name="answer2" required/>
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="answer 3" name="answer3" />
+                <input class="form-control" type="text" id="answer" name="answer3" />
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 4:</label>
-                <input class="form-control" type="text" id="answer 4" name="answer4" />
+                <input class="form-control" type="text" id="answer" name="answer4" />
         </div>
 		
 		
