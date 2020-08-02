@@ -74,7 +74,7 @@ error_reporting(E_ALL);
 if(isset($_POST["created"])) {
     $id = "";
     $question = "";
-	//$user_id = "";
+	$user_id = "";
 	//$questionnaire_id = "";
 	//$created = "";
 	//$modified = "";
@@ -85,9 +85,9 @@ if(isset($_POST["created"])) {
 	if(isset($_POST["question"]) && !empty($_POST["question"])){
         $question = $_POST["question"];
     }
-	//if (isset($_POST["user_id"]) && !empty($_POST["user_id"])){
-     //   $user_id = $_POST["user_id"];
-    //}
+	if (isset($_POST["user_id"]) && !empty($_POST["user_id"])){
+			$user_id = $_POST["user_id"];
+    }
 	//if(isset($_POST["questionnaire_id"]) && !empty($_POST["questionnaire_id"])){
     //    $questionnaire_id = $_POST["questionnaire_id"];
     //}
@@ -99,10 +99,10 @@ if(isset($_POST["created"])) {
     //}
 	
 	try {
-			$sql="Insert into Questions(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
+			$sql="Insert into Questions(id,question,user_id) values (:id,:question)";
 			$stmt=$common->getDB()->prepare($sql);
 			$stmt->execute([":id"=>$id,":question"=>$question]);
-            $result=$stmt->execute(array(":id"=>$id,":question"=>$question));
+            $result=$stmt->execute(array(":id"=>$id,":question"=>$question,":user_id"=>$user_id));
 			$e=$stmt->errorInfo();
 			
             if ($e[0] != "00000") {
