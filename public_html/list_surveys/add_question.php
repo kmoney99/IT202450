@@ -115,7 +115,6 @@ if(isset($_POST["created"])) {
 if(isset($_POST["created"])) {
     $id = "";
     $answer = "";
-	$question_id = "";
 	
 	
     if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -124,17 +123,12 @@ if(isset($_POST["created"])) {
 	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
         $question = $_POST["answer"];
     }
-	if(isset($_POST["question_id"]) && !empty($_POST["question_id"])){
-        $question = $_POST["question_id"];
-    }
-	
-	
 	
 	try {
-			$sql="Insert into Answers(id,answer,question_id) values (:id,:answer,:question_id)";
+			$sql="Insert into Answers(id,answer) values (:id,:answer)";
 			$stmt=$common->getDB()->prepare($sql);
-			$stmt->execute([":id"=>$id, ":answer"=>$answer, ":question_id"=>$question_id]);
-            $result=$stmt->execute(array(":id"=>$id, ":answer"=>$answer, ":question_id"=>$question_id));
+			$stmt->execute([":id"=>$id, ":answer"=>$answer]);
+            $result=$stmt->execute(array(":id"=>$id, ":answer"=>$answer));
 			$e=$stmt->errorInfo();
 			
             if ($e[0] != "00000") {

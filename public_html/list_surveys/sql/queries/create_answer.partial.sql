@@ -1,1 +1,1 @@
-INSERT INTO Answers(id, answer, question_id) VALUES (:id, :answer, :question_id)
+INSERT INTO Answers(id, answer) VALUES (:id, :answer)
