@@ -101,7 +101,7 @@ if(isset($_POST["created"])) {
 	try {
 			$sql="Insert into Questions(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
 			$stmt=$common->getDB()->prepare($sql);
-			$stmt->execute([":id"=>$id,":question"=>$question,"]);
+			$stmt->execute([":id"=>$id,":question"=>$question]);
             $result=$stmt->execute(array(":id"=>$id,":question"=>$question));
 			$e=$stmt->errorInfo();
 			
