@@ -99,12 +99,12 @@ if(isset($_POST["created"])) {
     }
 	
 	try {
-		$query = file_get_contents(__DIR__ ."/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
+		$query = file_get_contents(__DIR__ ."/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
 			
 			$sql="Insert into Question(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
 			$stmt=$common->getDB()->prepare($sql);
-			$stmt->execute ([":id"=>$id,":question"=>$question,":user_id"=>$user_id,":questionnaire_id"=>$questionnaire_id,":created"=>$created,":modified"=>$modified]);
+			$stmt->execute([":id"=>$id,":question"=>$question,":user_id"=>$user_id,":questionnaire_id"=>$questionnaire_id,":created"=>$created,":modified"=>$modified]);
 			$stmt=$common->getDB()->prepare($query);
             $result=$stmt->execute(array(":id"=>$id,":question"=>$question,":user_id"=>$user_id,":questionnaire_id"=>$questionnaire_id,":created"=>$created,":modified"=>$modified,));
 			$e=$stmt->errorInfo();
@@ -127,5 +127,8 @@ if(isset($_POST["created"])) {
         echo $e->getMessage();
     }
 }
+
+
+
 ?>
 
