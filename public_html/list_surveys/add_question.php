@@ -100,11 +100,11 @@ if(isset($_POST["created"])) {
 		$query = file_get_contents(__DIR__ ."/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
 			
-			$sql="Insert into Questions (id, question, user_id, questionnaire_id, created, modified) values (:id, :question, :user_id, :questionnaire_id, :created, :modified)";
+			$sql="Insert into Questions(id,question,user_id,questionnaire_id,created,modified) values (:id,:question,:user_id,:questionnaire_id,:created,:modified)";
 			
 			$stmt=$common->getDB()->prepare($sql);
 			
-			$stmt->execute ([":id" =>$id, ":question"=> $question, ":user_id" => $user_id, ":questionnaire_id"=>$questionnaire_id, ":created" =>$created, ":modified" => $modified]);
+			$stmt->execute ([":id"=>$id,":question"=>$question,":user_id"=>$user_id,":questionnaire_id"=>$questionnaire_id,":created"=>$created,":modified"=>$modified]);
             
 			$stmt=$common->getDB()->prepare($query);
 			
