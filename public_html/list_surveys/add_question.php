@@ -122,6 +122,15 @@ if(isset($_POST["created"])) {
 	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
         $answer = $_POST["answer"];
     }
+	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
+        $answer = $_POST["answer"];
+    }
+	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
+        $answer = $_POST["answer"];
+    }
+	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
+        $answer = $_POST["answer"];
+    }
 	
 	try {
 			$sql="Insert into Answers(id,answer) values (:id,:answer)";
