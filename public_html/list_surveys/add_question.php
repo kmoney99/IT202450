@@ -46,22 +46,22 @@ if(isset($query) && !empty($query)){
    <div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 1:</label>
-                <input class="form-control" type="text" id="answer 1" name="answer" required/>
+                <input class="form-control" type="text" id="answer 1" name="answer1" required/>
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 2:</label>
-                <input class="form-control" type="text" id="answer 2" name="answer" required/>
+                <input class="form-control" type="text" id="answer 2" name="answer2" required/>
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 3:</label>
-                <input class="form-control" type="text" id="answer 3" name="answer" />
+                <input class="form-control" type="text" id="answer 3" name="answer3" />
         </div>
 	<div class="list-group-item">
         <div class="form-group">
             <label for="answer">Answer Choice 4:</label>
-                <input class="form-control" type="text" id="answer 4" name="answer" />
+                <input class="form-control" type="text" id="answer 4" name="answer4" />
         </div>
 		
 		
@@ -122,17 +122,8 @@ if(isset($_POST["created"])) {
     if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id = $_POST["id"];
     }
-	if(isset($_POST["answer1"]) && !empty($_POST["answer1"])){
-        $answer = $_POST["answer1"];
-    }
-	if(isset($_POST["answer2"]) && !empty($_POST["answer2"])){
-        $answer = $_POST["answer2"];
-    }
-	if(isset($_POST["answer3"]) && !empty($_POST["answer3"])){
-        $answer = $_POST["answer3"];
-    }
-	if(isset($_POST["answer4"]) && !empty($_POST["answer4"])){
-        $answer = $_POST["answer$"];
+	if(isset($_POST["answer"]) && !empty($_POST["answer"])){
+        $answer = $_POST["answer"];
     }
 	
 	try {
