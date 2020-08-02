@@ -113,10 +113,7 @@ if(isset($_POST["created"])) {
 
 if(isset($_POST["created"])) {
     $id = "";
-    $answer1 = "";
-	$answer2 = "";
-	$answer3 = "";
-	$answer4 = "";
+    $answer = "";
 	
 	
     if(isset($_POST["id"]) && !empty($_POST["id"])){
