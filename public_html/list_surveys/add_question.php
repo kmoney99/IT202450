@@ -97,34 +97,26 @@ if(isset($_POST["created"])) {
     }
 	
 	try {
-		$query = file_get_contents(__DIR__ . "/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
+		$query = file_get_contents(__DIR__ ."/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
 			
-			$sql = "Insert into Questions (id, question, user_id, questionnaire_id, created, modified) values (:id, :question, :user_id, :questionnaire_id, :created, :modified)";
+			$sql="Insert into Questions (id, question, user_id, questionnaire_id, created, modified) values (:id, :question, :user_id, :questionnaire_id, :created, :modified)";
 			
-			$stmt = $common->getDB()->prepare ($sql);
+			$stmt=$common->getDB()->prepare($sql);
 			
-			$stmt -> execute ([":id" =>$id, ":question"=> $question, ":user_id" => $user_id, ":questionnaire_id"=>$questionnaire_id, ":created" =>$created, ":modified" => $modified]);
+			$stmt->execute ([":id" =>$id, ":question"=> $question, ":user_id" => $user_id, ":questionnaire_id"=>$questionnaire_id, ":created" =>$created, ":modified" => $modified]);
             
-			$stmt = $common->getDB()->prepare($query);
+			$stmt=$common->getDB()->prepare($query);
 			
-            
-			$result = $stmt->execute(array(
-                ":id" => $id,
-                ":question" => $question,
-				":user_id" => $user_id,
-				":questionnaire_id" => $questionnaire_id,
-                ":created" => $created,
-				":modified" => $modified,
-            
-			));
+            $result=$stmt->execute(array(":id"=>$id,":question"=>$question,":user_id"=>$user_id,":questionnaire_id"=>$questionnaire_id,":created"=>$created,":modified"=>$modified,));
 			
-            $e = $stmt->errorInfo();
+            $e=$stmt->errorInfo();
+			
             if ($e[0] != "00000") {
                 echo var_export($e, true);
             } else {
                 if ($result) {
-                    echo "Question was sucessfully added: " . $id;
+                    echo "Question was sucessfully added";
                 } else {
                     echo "Error inserting question";
                 }
