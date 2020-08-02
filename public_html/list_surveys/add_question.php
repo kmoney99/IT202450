@@ -2,8 +2,7 @@
 include_once(__DIR__."/partials/header.partial.php");
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
-/*
+/*$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
         $stmt = getDB()->prepare($query);
@@ -32,9 +31,9 @@ if(isset($query) && !empty($query)){
 		
 	}
 
-Fatal error: Uncaught Error: Call to undefined function getDB() in /app/public_html/list_surveys/add_question.php:9 Stack trace: #0 {main} thrown in /app/public_html/list_surveys/add_question.php on line 9
-?>
 */
+?>
+
 
 <form method="POST">
 
