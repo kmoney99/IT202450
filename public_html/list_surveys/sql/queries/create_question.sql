@@ -1,2 +1,2 @@
-INSERT INTO Questions (question, user_id) VALUES (:question, :user_id)
+INSERT INTO Question (id, question) VALUES (:id, :question)
 
