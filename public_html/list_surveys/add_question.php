@@ -40,7 +40,7 @@ ini_set('display_errors', '1');
 
 
 <?php
-$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
+/*$query = file_get_contents(__DIR__ . "/sql/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
         $stmt = getDB()->prepare($query);
@@ -69,41 +69,71 @@ if(isset($query) && !empty($query)){
 		
 	}
 ?>
+*/
 <?php
-include_once(__DIR__."/partials/header.partial.php");
-error_reporting(E_ALL);
 if(isset($_POST["created"])) {
     $id = "";
     $question = "";
-
+	$user_id = "";
+	$questionnaire_id = "";
+	$created = "";
+	$modified = "";
+	
     if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id = $_POST["id"];
     }
 	if(isset($_POST["question"]) && !empty($_POST["question"])){
         $question = $_POST["question"];
     }
-    try {
-        $query = file_get_contents(__DIR__ . "/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
+	if (isset($_POST["user_id"]) && !empty($_POST["user_id"])){
+        $user_id = $_POST["user_id"];
+    }
+	if(isset($_POST["questionnaire_id"]) && !empty($_POST["questionnaire_id"])){
+        $questionnaire_id = $_POST["questionnaire_id"];
+    }
+	if (isset($_POST["created"]) && !empty($_POST["created"])){
+        $created = $_POST["created"];
+    }
+	if (isset($_POST["modified"]) && !empty($_POST["modified"])){
+        $modified = $_POST["modified"];
+    }
+	
+	try {
+		$query = file_get_contents(__DIR__ . "/sql/queries/017_CREATE_TABLE_QUESTIONS.sql");
         if(isset($query) && !empty($query)) {
-            $stmt = getDB()->prepare($query);
-            $result = $stmt->execute(array(
+			
+			$sql = "Insert into Questions (id, question, user_id, questionnaire_id, created, modified) values (:id, :question, :user_id, :questionnaire_id, :created, :modified)";
+			
+			$stmt = $common->getDB()->prepare ($sql);
+			
+			$stmt -> execute ([":id" =>$id, ":question"=> $question, ":user_id" => $user_id, ":questionnaire_id"=>$questionnaire_id, ":created" =>$created, ":modified" => $modified]);
+            
+			$stmt = $common->getDB()->prepare($query);
+			
+            
+			$result = $stmt->execute(array(
                 ":id" => $id,
                 ":question" => $question,
-				
-            ));
+				":user_id" => $user_id,
+				":questionnaire_id" => $questionnaire_id,
+                ":created" => $created,
+				":modified" => $modified,
+            
+			));
+			
             $e = $stmt->errorInfo();
             if ($e[0] != "00000") {
                 echo var_export($e, true);
             } else {
                 if ($result) {
-                    echo "Question was sucessfully added:", " " .$id;
+                    echo "Question was sucessfully added: " . $id;
                 } else {
                     echo "Error inserting question";
                 }
             }
         }
         else{
-            echo "Failed to find create_question.sql file";
+            echo "Failed to find CREATE_TABLE_QUESTIONS.sql file";
         }
     }
     catch (Exception $e){
