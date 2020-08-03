@@ -24,15 +24,7 @@ if(isset($_POST["search"])){
 if(isset($search)) {
 
     require("common.inc.php");
-	$order = $_POST["order"];
-	echo var_dump($order);
     $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql");
-	 if((int)$order == 1){
-            $query .= "Ascending Sort";
-        }
-        else{
-            $query .= "Descending Sort";
-        }
     if (isset($query) && !empty($query)) {
         try {
             $stmt = getDB()->prepare($query);
