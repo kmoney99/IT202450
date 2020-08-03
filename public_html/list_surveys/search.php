@@ -1,75 +1,63 @@
-<head>
-    <title>Simple Survey</title>
-    <link rel="stylesheet" type="text/css" href="../ajaxqueries/style2.css">
-    <p>
-        Search Page
-    </p>
-</head>
 <?php
+include_once(__DIR__."/partials/header.partial.php");
 $search = "";
-if(isset($_POST["search"], $_POST["SortBy"])){
+if(isset($_POST["search"])){
     $search = $_POST["search"];
-    $Sort = $_POST["SortBy"];
 }
 ?>
-<form method="POST">
-    <input type="text" name="search" placeholder="Search for Question"
-           value="<?php echo $search;?>"/>
-    <label for="SortBy">SortBy</label>
-    <select id="SortBy" name="SortBy">
-        <option value="Ascending">Ascending Order</option>
-        <option value="Descending">Descending Order</option>
-        <input type="submit"
-    </select>
-</form>
-<?php
-if(isset($Sort) && isset($search)) {
-    require("common.inc.php");
-    $query = file_get_contents(__DIR__ . "/queries/SearchTable.sql");
-    if (isset($query) && !empty($query)) {
-        if($Sort["SortBy"]=="Ascending"){
-            $query = file_get_contents(__DIR__ . "/queries/ASC.sql");
-            try {
-                $stmt = getDB()->prepare($query);
-                //Note: With a LIKE query, we must pass the % during the mapping
-                $stmt->execute([":question"=>$search ]);
-                //Note the fetchAll(), we need to use it over fetch() if we expect >1 record
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-        }
-        elseif($Sort["SortBy"]=="Descending"){
-            $query = file_get_contents(__DIR__ . "/queries/DESC.sql");
-            try {
-                $stmt = getDB()->prepare($query);
-                //Note: With a LIKE query, we must pass the % during the mapping
-                $stmt->execute([":question"=>$search]);
-                //Note the fetchAll(), we need to use it over fetch() if we expect >1 record
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-        }
 
+<h3> Search for survey question </h3>
+<form method="POST">
+<label for="Sort the Data">Sort the Surveys:
+  <select id="Sort" name="title">
+ <option value="1">Ascending Sort</option>
+
+ <option value="0">Descending Sort</option>
+
+    <input type="text" name="search" placeholder="Search.." value="<?php echo $search;?>"/>
+    <input type="submit" value="Search"/>
+
+</form>
+
+
+<?php
+if(isset($search)) {
+
+    require("common.inc.php");
+	$order = $_POST["order"];
+	echo var_dump($order);
+    $query = file_get_contents(__DIR__ . "/queries/SEARCH_TABLE_SURVEY.sql");
+	 if((int)$order == 1){
+            $query .= "Ascending Sort";
+        }
+        else{
+            $query .= "Descending Sort";
+        }
+    if (isset($query) && !empty($query)) {
+        try {
+            $stmt = getDB()->prepare($query);
+
+            $stmt->execute([":survey"=>$search]);
+
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 }
 ?>
-<!--This part will introduce us to PHP templating,
-note the structure and the ":" -->
-<!-- note how we must close each check we're doing as well-->
+
 <?php if(isset($results) && count($results) > 0):?>
-    <p>This shows when we have results</p>
+    <p>Results</p>
     <ul>
-        <!-- Here we'll loop over all our results and reuse a specific template for each iteration,
-        we're also using our helper function to safely return a value based on our key/column name.-->
+
         <?php foreach($results as $row):?>
             <li>
-                <?php echo get($row, "question")?>
-                <a href="../ajaxqueries/delete.php?QuestionId=<?php echo get($row, "id");?>Delete</a>
+                <?php echo get($row, "title")?>
+
             </li>
         <?php endforeach;?>
     </ul>
 <?php else:?>
-    <p>This shows when we don't have results</p>
+    <p>Results</p>
 <?php endif;?>
