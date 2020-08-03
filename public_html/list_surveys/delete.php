@@ -20,8 +20,5 @@ if (isset($_GET["surveyID"]) && !empty($_GET["surveyID"])){
     }
 }
 else{
-    echo "Invalid to delete";
+    echo "Invalid thing to delete";
 }
-?>
-
-<?php
