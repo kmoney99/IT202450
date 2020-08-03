@@ -18,22 +18,8 @@ if(isset($query) && !empty($query)){
 ?>
 
 <?php if(isset($results)):?>
-    <p>Surveys By Title</p>
-    <ul>
-        <div>
+    <p>Surveys created by you</p>
         <?php foreach($results as $row):?>
-            <li>
+		
                 <?php echo get($row, "title")?>
-				
-				<a href="add_question.php?surveyID=<?php echo get($row, "id");?>">Add Question</a>
-				
-                <a href="delete.php?surveyID=<?php echo get($row, "id");?>">Delete Survey</a>
-				
-				<a href="view_survey.php?surveyID=<?php echo get($row, "id");?>">View Survey</a>
-		</div>
-            </li>
-        <?php endforeach;?>
-    </ul>
-<?php else:?>
-    <p>No Surveys at this time.</p>
-<?php endif;?>
+
