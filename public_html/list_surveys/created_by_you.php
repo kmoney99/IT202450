@@ -2,7 +2,6 @@
 
 include_once(__DIR__."/partials/header.partial.php");
 require("common.inc.php");
-
 $query = file_get_contents(__DIR__ . "/queries/SELECT_ALL_TABLE_SURVEY.sql");
 if(isset($query) && !empty($query)){
     try {
@@ -16,14 +15,20 @@ if(isset($query) && !empty($query)){
         echo $e->getMessage();
     }
 }
-if(isset($results)) {
-	
-    echo "Surveys created by you";
-	
-       foreach($results as $row) {
-		
-            echo get($row, "title")
-	   }
-}
-
 ?>
+
+<?php if(isset($results)):?>
+    <p>Surveys you created</p>
+    <ul>
+        <div>
+        <?php foreach($results as $row):?>
+            <li>
+                <?php echo get($row, "title")?>
+			
+		</div>
+            </li>
+        <?php endforeach;?>
+    </ul>
+<?php else:?>
+    <p>You have not created one yet.</p>
+<?php endif;?>
